@@ -13,6 +13,7 @@ __pycache__
 
 # data (downloaded separately)
 data/mnist/
+data/fashion/
 paper.pdf
 
 # generated figure (holds crops of the paper's figure)
