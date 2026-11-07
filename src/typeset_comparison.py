@@ -11,6 +11,9 @@ from pathlib import Path
 # Reads the paper's PDF & copies page regions into new vector PDFs
 import pymupdf
 
+# Readers & grids shared w/ the matplotlib figures (src/ is on the import path when run as a script)
+from plot_figures import ENS, YLIM, get
+
 # -------------------
 # input configuration
 # -------------------
@@ -116,3 +119,72 @@ def crop_panels(pdf: Path, out_dir: Path):
         page = doc.new_page(width=clip.width, height=clip.height)
         page.show_pdf_page(page.rect, src, PAGE_INDEX, clip=clip)
         doc.save(out_dir / f"original-{i}.pdf")
+
+
+# ---------------------------------
+# build the reproduction's pgfplots
+# ---------------------------------
+
+
+def coords(xs, ys):
+    # pgfplots coordinate list: (x,y) pairs
+    return " ".join(f"({x:.8f},{y:.10f})" for x, y in zip(xs, ys))
+
+
+def pgf_axis(xopts: str, curves, extra: str = ""):
+    # Axis options shared by all panels, then one \addplot per curve
+    lines = [
+        AXIS.replace("@YMIN@", str(YLIM[0]))
+        .replace("@YMAX@", str(YLIM[1]))
+        .replace("@XOPTS@", xopts)
+    ]
+    for style, points, legend in curves:
+        lines.append(f"\\addplot[{style}] coordinates {{{points}}};")
+        if legend:
+            lines.append(f"\\addlegendentry{{{legend}}}")
+    if extra:
+        lines.append(extra)
+    lines.append(r"\end{axis}\end{tikzpicture}")
+    return "\n".join(lines)
+
+
+def panel_left(d, left_x):
+    blue_x, red_x = left_x
+
+    # Leaves grow w/ one tree (blue), then trees grow at the cap (red)
+    xb = [blue_x[L] for L in LEFT_LEAVES] + [blue_x["max"]]
+    yb = [get(d, L, 1) for L in LEFT_LEAVES] + [get(d, MAX_KEY, 1)]
+    xr = [red_x[k] for k in ENS]
+    yr = [get(d, MAX_KEY, k) for k in ENS]
+    curves = [
+        (BLUE_STYLES[0], coords(xb, yb), None),
+        (RED_STYLES[0], coords(xr, yr), None),
+    ]
+
+    # Dashed line where growth switches from leaves to trees
+    x = float(blue_x["max"])
+    divider = (
+        f"\\draw[gray,densely dashed,thin] "
+        f"(axis cs:{x},{YLIM[0]})--(axis cs:{x},{YLIM[1]});"
+    )
+    return pgf_axis(XOPTS_LEFT, curves, divider)
+
+
+def panel_center(d):
+    # Error vs leaf cap, one curve per ensemble size
+    curves = []
+    for style, k in zip(BLUE_STYLES, CENTER_ENS):
+        ys = [get(d, L, k) for L in CENTER_LEAVES]
+        legend = rf"$P^{{\mathrm{{ens}}}}={k}$"
+        curves.append((style, coords(CENTER_LEAVES, ys), legend))
+    return pgf_axis(XOPTS_CENTER, curves)
+
+
+def panel_right(d):
+    # Error vs ensemble size, one curve per leaf cap
+    curves = []
+    for style, L in zip(RED_STYLES, RIGHT_LEAVES):
+        ys = [get(d, L, k) for k in ENS]
+        legend = rf"$P^{{\mathrm{{leaf}}}}={L}$"
+        curves.append((style, coords(ENS, ys), legend))
+    return pgf_axis(XOPTS_RIGHT, curves)
