@@ -88,10 +88,10 @@ def tree_preds(forest, X):
     return np.stack([t.predict(X) for t in forest.estimators_])
 
 
-def run(variant: str, seed: int, Xtr, Ytr, Xte, Yte, n_jobs: int = -1):
+def run(variant: str, seed: int, Xtr, Ytr, Xte, Yte, n_jobs: int = -1, leaves=None):
     rows = []
 
-    for L in LEAVES:
+    for L in leaves or LEAVES:
         t0 = time.time()
 
         # Settings shared by every forest in the paper's tree experiment
