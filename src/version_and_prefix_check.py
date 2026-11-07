@@ -92,3 +92,25 @@ def version_check(data):
         )
 
     print(f"version block {time.time() - t0:.1f}s")
+
+
+def prefix_check(data):
+    Xtr, Ytr, Xte, _ = data
+
+    for L in PREFIX_LEAVES:
+        # Multi-output: first k trees of the big forest vs a fresh k-tree forest
+        a = rf(L, N_TREES, Xtr, Ytr)
+        b = rf(L, PREFIX_TREES, Xtr, Ytr)
+        pa = np.mean([t.predict(Xte) for t in a.estimators_[:PREFIX_TREES]], 0)
+        pb = b.predict(Xte)
+
+        # One-vs-all (a single class): same comparison
+        a1 = rf(L, N_TREES, Xtr, Ytr[:, PREFIX_CLASS])
+        b1 = rf(L, PREFIX_TREES, Xtr, Ytr[:, PREFIX_CLASS])
+        qa = np.mean([t.predict(Xte) for t in a1.estimators_[:PREFIX_TREES]], 0)
+        qb = b1.predict(Xte)
+
+        print(
+            f"prefix check P_leaf={L}: MULTI max|diff|={np.abs(pa - pb).max():.2e}; "
+            f"OVA(class {PREFIX_CLASS}) max|diff|={np.abs(qa - qb).max():.2e}"
+        )
