@@ -7,6 +7,7 @@ multi: multi-output forest
 seeds: one-vs-all seed 42 line w/ a mean +/- 1 sd band over seeds 0-3
 """
 
+import argparse
 from pathlib import Path
 
 # Plotting (Agg backend => no display needed)
@@ -196,3 +197,98 @@ def bands(axs, S, maxkey: str, left_x):
         a2.fill_between(
             ENS, m[:, 0] - m[:, 1], m[:, 0] + m[:, 1], color=c, alpha=0.3, lw=0
         )
+
+
+# -----------
+# draw & save
+# -----------
+
+
+def draw_figure(d, maxkey: str, title: str, out: Path, left_x, S=None):
+    fig, axs = plt.subplots(1, 3, figsize=(10, 2.6), sharey=True)
+    three_panel(axs, d, maxkey, left_x)
+
+    # Optional seed band on top of the seed-42 lines
+    if S is not None:
+        bands(axs, S, maxkey, left_x)
+
+    fig.suptitle(title, fontsize=9)
+    fig.tight_layout()
+    fig.savefig(out, dpi=200)
+    plt.close(fig)
+    print("wrote", out)
+
+
+def draw_overlay(d, orig, out: Path, left_x):
+    fig, axs = plt.subplots(1, 3, figsize=(10, 2.6), sharey=True)
+    three_panel(axs, d, "500", left_x, alpha=0.8)
+
+    # Digitized original vertices as open circles (the left panel is in pixel x)
+    style = {"s": 10, "facecolors": "none", "edgecolors": "k", "lw": 0.7, "zorder": 5}
+    left = orig[orig.panel == "left"]
+    axs[0].scatter(left.x_px, left.err_fig3cal, label="original (digitized)", **style)
+    center = orig[orig.panel == "center"]
+    axs[1].scatter(center.p_leaf.astype(int), center.err_fig3cal, **style)
+    right = orig[orig.panel == "right"]
+    axs[2].scatter(right.p_ens, right.err_fig3cal, **style)
+    axs[0].legend(fontsize=6, frameon=False, loc="upper right")
+
+    fig.suptitle(
+        "Ours OVA (lines) vs original Fig. 2 digitized vertices (circles), "
+        "y calibrated via Fig. 3 inset",
+        fontsize=9,
+    )
+    fig.tight_layout()
+    fig.savefig(out, dpi=200)
+    plt.close(fig)
+    print("wrote", out)
+
+
+# ----
+# main
+# ----
+
+
+def main():
+    parser = argparse.ArgumentParser(description="draw the figure 2 re-runs")
+    parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
+    parser.add_argument("--results-dir", type=Path, default=RESULTS_DIR)
+    parser.add_argument("--out-dir", type=Path, default=FIGURES_DIR)
+    args = parser.parse_args()
+
+    # Digitized original (the figure 3 inset is only a calibration reference)
+    orig = pd.read_csv(args.data_dir / "fig2_original_digitized.csv")
+    orig = orig[orig.panel != "fig3_inset"]
+    left_x = left_panel_x(orig)
+
+    # Seed-42 re-runs of both model formulations
+    ova = load_results(args.results_dir / "results_ova_seed42.csv")
+    multi = load_results(args.results_dir / "results_multi_seed42.csv")
+
+    args.out_dir.mkdir(parents=True, exist_ok=True)
+
+    draw_overlay(ova, orig, args.out_dir / "fig2_overlay_ova.png", left_x)
+    draw_figure(
+        multi,
+        "500",
+        "Ours (re-run), MULTI: one multi-output forest, seed 42; '500' = max_leaf_nodes=500",
+        args.out_dir / "fig2_multi.png",
+        left_x,
+    )
+
+    # Seed band: mean ± 1 sample sd over seeds 0-3 (the seed-42 run is only the line)
+    seeds = load_results(args.results_dir / "results_ova_seeds0-3.csv")
+    draw_figure(
+        ova,
+        "500",
+        "Ours OVA: seed 42 line; band = mean ± 1 sd over seeds 0,1,2,3",
+        args.out_dir / "fig2_seeds_ova.png",
+        left_x,
+        S=seeds,
+    )
+
+    print(f"\ndone. figures written to {args.out_dir}")
+
+
+if __name__ == "__main__":
+    main()
