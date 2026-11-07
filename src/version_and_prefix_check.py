@@ -6,12 +6,19 @@ version: errors of capped forests (run it under different scikit-learn versions)
 prefix: first k trees of a big forest vs a fresh k-tree forest
 """
 
+import argparse
+import sys
 import time
+from pathlib import Path
 
 import numpy as np
+import sklearn
 
 # Forest implementation behind the experiment
 from sklearn.ensemble import RandomForestRegressor
+
+# Loader shared w/ the main experiment (src/ is on the import path when run as a script)
+from run_fig2 import DATA_DIR, load
 
 # -------------------
 # input configuration
@@ -114,3 +121,37 @@ def prefix_check(data):
             f"prefix check P_leaf={L}: MULTI max|diff|={np.abs(pa - pb).max():.2e}; "
             f"OVA(class {PREFIX_CLASS}) max|diff|={np.abs(qa - qb).max():.2e}"
         )
+
+
+# ----
+# main
+# ----
+
+
+def main():
+    parser = argparse.ArgumentParser(description="version & prefix checks")
+    parser.add_argument("--mode", default="all", choices=["all", "version", "prefix"])
+    parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
+    args = parser.parse_args()
+
+    # Load the main experiment's training subset & the full test set
+    data = load(args.data_dir)
+
+    # Record the environment the numbers came from
+    print(
+        "python",
+        sys.version.split()[0],
+        "sklearn",
+        sklearn.__version__,
+        "numpy",
+        np.__version__,
+    )
+
+    if args.mode in ("all", "version"):
+        version_check(data)
+    if args.mode in ("all", "prefix"):
+        prefix_check(data)
+
+
+if __name__ == "__main__":
+    main()
