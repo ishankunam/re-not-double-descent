@@ -5,6 +5,7 @@ compare the re-run against the digitized original figure 2
 write a comparison table, then print error minima, differences, up-steps along P^ens & seed statistics
 """
 
+import argparse
 from pathlib import Path
 
 import numpy as np
@@ -223,3 +224,47 @@ def print_seed_stats(variant: str, S):
     for seed, g in S[S.p_ens == 1].groupby("seed"):
         i = g.test_err.idxmin()
         print(f"    seed {seed}: {g.test_err[i]:.6f} at P_leaf={g.p_leaf[i]}")
+
+
+# ----
+# main
+# ----
+
+
+def main():
+    parser = argparse.ArgumentParser(description="compare the re-run w/ the original")
+    parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
+    parser.add_argument("--results-dir", type=Path, default=RESULTS_DIR)
+    args = parser.parse_args()
+
+    # Digitized original (the figure 3 inset is only a calibration reference)
+    orig = pd.read_csv(args.data_dir / "fig2_original_digitized.csv")
+    orig = orig[orig.panel != "fig3_inset"]
+
+    # Seed-42 re-runs of both model formulations
+    results = {
+        "OVA": load_results(args.results_dir / "results_ova_seed42.csv"),
+        "MULTI": load_results(args.results_dir / "results_multi_seed42.csv"),
+    }
+
+    # Comparison table => csv & stdout
+    T = comparison_table(results, orig)
+    T.to_csv(args.results_dir / "comparison_original_vs_ours.csv", index=False)
+    pd.set_option("display.width", 250)
+    print(T.round(6).to_string())
+
+    print_minima(results, orig)
+    print_deltas(results, orig)
+    print_upsteps(results, orig)
+
+    # Seeds 0-3 are optional (only present if those runs were done)
+    for variant in ["ova", "multi"]:
+        path = args.results_dir / f"results_{variant}_seeds0-3.csv"
+        if path.exists():
+            print_seed_stats(variant, load_results(path))
+
+    print(f"\ndone. wrote {args.results_dir / 'comparison_original_vs_ours.csv'}")
+
+
+if __name__ == "__main__":
+    main()
