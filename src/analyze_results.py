@@ -7,6 +7,7 @@ write a comparison table, then print error minima, differences, up-steps along P
 
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 # -------------------
@@ -139,3 +140,86 @@ def comparison_table(results, orig):
     for v in results:
         T[f"d_{v}_cap500"] = T[f"{v}_cap500"] - T.original
     return T
+
+
+# ----------------
+# printed analysis
+# ----------------
+
+
+def print_minima(results, orig):
+    # Where the single-tree curve bottoms out
+    for v, d in results.items():
+        q = d[d.p_ens == 1]
+        i = q.test_err.idxmin()
+        print(f"{v}: P_ens=1 min {q.test_err[i]:.6f} at P_leaf={q.p_leaf[i]}")
+
+    q = orig[(orig.panel == "center") & (orig.series == "P_ens=1")]
+    i = q.err_fig3cal.idxmin()
+    print(f"original: P_ens=1 min {q.err_fig3cal[i]:.6f} at P_leaf={q.p_leaf[i]}")
+
+
+def print_deltas(results, orig):
+    # Re-run minus original at every digitized vertex ("max" -> cap 500)
+    dd = []
+    for _, r in orig.iterrows():
+        L = "500" if str(r.p_leaf) in ("500", "max") else str(r.p_leaf)
+        for v, d in results.items():
+            delta = get(d, L, int(r.p_ens)) - r.err_fig3cal
+            dd.append(
+                {
+                    "variant": v,
+                    "panel": r.panel,
+                    "p_leaf": L,
+                    "p_ens": r.p_ens,
+                    "delta": delta,
+                }
+            )
+    dd = pd.DataFrame(dd)
+
+    by_variant = dd.groupby("variant").delta
+    print(
+        by_variant.agg(lambda x: np.abs(x).max()).rename(
+            "max|delta| over all digitized points"
+        )
+    )
+    print(by_variant.agg(lambda x: np.abs(x).mean()).rename("mean|delta|"))
+
+
+def print_upsteps(results, orig):
+    # Steps along the P^ens grid where the error goes up (right panel)
+    def ups_of(e):
+        return [
+            (ENS[i], ENS[i + 1], e[i + 1] - e[i]) for i in range(6) if e[i + 1] > e[i]
+        ]
+
+    def fmt(ups):
+        return ";".join(f"{a}->{b}:+{x:.2e}" for a, b, x in ups)
+
+    lines = []
+    for v, d in results.items():
+        for L in ["20", "50", "100", "500", "max"]:
+            ups = ups_of([get(d, L, k) for k in ENS])
+            lines.append({"source": v, "p_leaf": L, "n_up": len(ups), "ups": fmt(ups)})
+    for L in [20, 50, 100, 500]:
+        series = orig[(orig.panel == "right") & (orig.series == f"P_leaf={L}")]
+        ups = ups_of(series.sort_values("p_ens").err_fig3cal.values)
+        lines.append(
+            {"source": "original", "p_leaf": str(L), "n_up": len(ups), "ups": fmt(ups)}
+        )
+    print(pd.DataFrame(lines).to_string())
+
+
+def print_seed_stats(variant: str, S):
+    # Mean & sample standard deviation across seeds at the probe points
+    print(f"\n{variant.upper()} seeds 0-3 mean +/- sd:")
+    for name, L, k in SEED_PROBES:
+        x = S[(S.p_leaf == str(L)) & (S.p_ens == k)].test_err
+        seeds = ", ".join(f"{y:.4f}" for y in x)
+        print(f"  {name:24s} {x.mean():.4f} +/- {x.std(ddof=1):.4f}   (seeds: {seeds})")
+
+    # Best single-tree error (& its leaf cap) for each seed
+    print("  P_ens=1 min per seed:")
+    for seed, g in S[S.p_ens == 1].groupby("seed"):
+        i = g.test_err.idxmin()
+        print(f"    seed {seed}: {g.test_err[i]:.6f} at P_leaf={g.p_leaf[i]}")
