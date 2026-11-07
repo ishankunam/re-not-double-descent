@@ -11,6 +11,7 @@ from pathlib import Path
 
 # Plotting (Agg backend => no display needed)
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 
 plt.switch_backend("Agg")
@@ -149,3 +150,49 @@ def three_panel(axs, d, maxkey: str, left_x, alpha: float = 1.0):
         a.set_yticklabels([f"{t:.2f}" for t in YT])
     a1.legend(fontsize=6, frameon=False, loc="upper right")
     a2.legend(fontsize=6, frameon=False, loc="upper right")
+
+
+def bands(axs, S, maxkey: str, left_x):
+    a0, a1, a2 = axs
+    blue_x, red_x = left_x
+
+    def ms(L, k):
+        # Mean & sample standard deviation over seeds
+        x = S[(S.p_leaf == str(L)) & (S.p_ens == k)].test_err
+        return x.mean(), x.std(ddof=1)
+
+    # Left panel: both curves
+    bl = [2, 5, 10, 20, 50, 75, 100]
+    xb = [blue_x[L] for L in bl] + [blue_x["max"]]
+    mb = np.array([ms(L, 1) for L in bl] + [ms(maxkey, 1)])
+    a0.fill_between(
+        xb, mb[:, 0] - mb[:, 1], mb[:, 0] + mb[:, 1], color=BLUE, alpha=0.25, lw=0
+    )
+    mr = np.array([ms(maxkey, k) for k in ENS])
+    a0.fill_between(
+        [red_x[k] for k in ENS],
+        mr[:, 0] - mr[:, 1],
+        mr[:, 0] + mr[:, 1],
+        color=RED,
+        alpha=0.25,
+        lw=0,
+    )
+
+    # Center panel: one band per ensemble size
+    for k, c in ENS_COLS.items():
+        m = np.array([ms(maxkey if L == 500 else L, k) for L in CENTER_LEAVES])
+        a1.fill_between(
+            CENTER_LEAVES,
+            m[:, 0] - m[:, 1],
+            m[:, 0] + m[:, 1],
+            color=c,
+            alpha=0.3,
+            lw=0,
+        )
+
+    # Right panel: one band per leaf cap
+    for L, c in LEAF_COLS.items():
+        m = np.array([ms(maxkey if L == 500 else L, k) for k in ENS])
+        a2.fill_between(
+            ENS, m[:, 0] - m[:, 1], m[:, 0] + m[:, 1], color=c, alpha=0.3, lw=0
+        )
