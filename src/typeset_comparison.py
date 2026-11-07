@@ -6,13 +6,17 @@ the original panels are cropped from the paper's pdf at run time, so the paper's
 the re-run curves are written as pgfplots coordinates from the results csv
 """
 
+import argparse
+import subprocess
 from pathlib import Path
+
+import pandas as pd
 
 # Reads the paper's PDF & copies page regions into new vector PDFs
 import pymupdf
 
 # Readers & grids shared w/ the matplotlib figures (src/ is on the import path when run as a script)
-from plot_figures import ENS, YLIM, get
+from plot_figures import ENS, YLIM, get, left_panel_x, load_results
 
 # -------------------
 # input configuration
@@ -188,3 +192,84 @@ def panel_right(d):
         legend = rf"$P^{{\mathrm{{leaf}}}}={L}$"
         curves.append((style, coords(ENS, ys), legend))
     return pgf_axis(XOPTS_RIGHT, curves)
+
+
+# ---------------
+# write & compile
+# ---------------
+
+
+def build_tex(d, left_x, name: str, caption: bool):
+    labels = [
+        "(a) Combined growth: leaves, then trees",
+        "(b) Leaf cap varied; ensemble size fixed",
+        "(c) Ensemble size varied; leaf cap fixed",
+    ]
+    plots = [panel_left(d, left_x), panel_center(d), panel_right(d)]
+
+    # Header, then one row per panel (original crop | reproduction)
+    parts = [PREAMBLE.replace("@NAME@", name).replace("@RESULTS@", RESULTS_FILE)]
+    for i, (label, plot) in enumerate(zip(labels, plots), start=1):
+        row = ROW.replace("@LABEL@", label).replace("@CROP@", f"original-{i}.pdf")
+        parts.append(row.replace("@PLOT@", plot))
+    parts.append(r"\end{tabular}")
+    if caption:
+        parts.append(CAPTION)
+    parts.append(r"\end{document}")
+    return "\n".join(parts) + "\n"
+
+
+def compile_tex(tex: Path):
+    # Run from the output folder so the crops are found
+    cmd = ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", tex.name]
+    result = subprocess.run(
+        cmd, cwd=tex.parent, capture_output=True, text=True, check=False
+    )
+    if result.returncode != 0:
+        print(result.stdout[-2000:])
+        raise SystemExit(f"pdflatex failed on {tex}")
+
+
+# ----
+# main
+# ----
+
+
+def main():
+    parser = argparse.ArgumentParser(description="typeset the figure 2 comparison")
+    parser.add_argument(
+        "--pdf", type=Path, required=True, help="path to the paper's PDF"
+    )
+    parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
+    parser.add_argument("--results-dir", type=Path, default=RESULTS_DIR)
+    parser.add_argument("--out-dir", type=Path, default=OUT_DIR)
+    parser.add_argument("--name", default="fig2_comparison", help="output file stem")
+    parser.add_argument(
+        "--no-caption", action="store_true", help="leave out the caption"
+    )
+    parser.add_argument(
+        "--compile", action="store_true", help="run pdflatex afterwards"
+    )
+    args = parser.parse_args()
+
+    # Digitized original (only its left-panel x positions are needed)
+    orig = pd.read_csv(args.data_dir / "fig2_original_digitized.csv")
+    left_x = left_panel_x(orig[orig.panel != "fig3_inset"])
+    d = load_results(args.results_dir / RESULTS_FILE)
+
+    args.out_dir.mkdir(parents=True, exist_ok=True)
+    crop_panels(args.pdf, args.out_dir)
+
+    tex = args.out_dir / f"{args.name}.tex"
+    tex.write_text(build_tex(d, left_x, args.name, not args.no_caption))
+    print("wrote", tex)
+
+    if args.compile:
+        compile_tex(tex)
+        print("wrote", tex.with_suffix(".pdf"))
+
+    print(f"\ndone. figure files written to {args.out_dir}")
+
+
+if __name__ == "__main__":
+    main()
