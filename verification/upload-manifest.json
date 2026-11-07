@@ -1,0 +1,242 @@
+{
+  "README_fashion_mnist.md": {
+    "sha256": "fee9fe96a748ce416d9b09d60be85652bc46f445f2aeeb10c9a2f6533b16f724",
+    "bytes": 1118
+  },
+  "fashion_mnist_extension/.gitignore": {
+    "sha256": "09a2a04c39e589fc4d130d3e0432332943aa0901232482612d36619fe9d2facd",
+    "bytes": 145
+  },
+  "fashion_mnist_extension/README.md": {
+    "sha256": "5fdc92b180b1a1f580b958c9ece4e95d3b13bb7c9a182e1af199c05e53387ff0",
+    "bytes": 6372
+  },
+  "fashion_mnist_extension/experiments/__init__.py": {
+    "sha256": "ea782e64ed79f2e7870f474a9fac82921edcf1be564a1cbc75db696a147c36a0",
+    "bytes": 62
+  },
+  "fashion_mnist_extension/experiments/common.py": {
+    "sha256": "39737a60dc8b742bbfd1b5b4e04d38431e06335c714e3429bd49e7b04ba1f33c",
+    "bytes": 4402
+  },
+  "fashion_mnist_extension/experiments/download_data.py": {
+    "sha256": "464ae779f5bead869e1b9d7f78a17d684dbe92670fc011da012341337cdf726c",
+    "bytes": 1867
+  },
+  "fashion_mnist_extension/experiments/plot_results.py": {
+    "sha256": "53e1bb529d867f3edc9a499aac47e8f9fddca2bdc9e8c523143f8de09617bae3",
+    "bytes": 13413
+  },
+  "fashion_mnist_extension/experiments/plot_rff.py": {
+    "sha256": "32935b0f9770f68e9ae106c4fe9a127c28ee95ed2b9b556bb687dbe4fe4fc89c",
+    "bytes": 11609
+  },
+  "fashion_mnist_extension/experiments/plot_section5.py": {
+    "sha256": "6ef9b5b68122bad8525930e131b98513be62a15fc94a621c77f34537a5e0b828",
+    "bytes": 3950
+  },
+  "fashion_mnist_extension/experiments/requirements-reproduction.txt": {
+    "sha256": "28e75f1385c8360dabf57ac9b6ebc304ba7073849163d679da6ac69c6b94e3a4",
+    "bytes": 290
+  },
+  "fashion_mnist_extension/experiments/run_boosting.py": {
+    "sha256": "4b6f1260be1649ec67b354e6e950ed454af3b945cfc379bc1ddbcc7505aa263a",
+    "bytes": 31077
+  },
+  "fashion_mnist_extension/experiments/run_trees.py": {
+    "sha256": "d84fb97a53859e5168588dacaa1123baa05fef65124f3a1e76f45544134de2a8",
+    "bytes": 26307
+  },
+  "fashion_mnist_extension/logs/boosting-main.log": {
+    "sha256": "6ca445412341f2b2b832f22843e15fd7944787b962bbfa44ea0b2c1a8d346c45",
+    "bytes": 26478
+  },
+  "fashion_mnist_extension/logs/trees-main.log": {
+    "sha256": "e366060a645315688d9c5e52b09a77e9afc1c0be2a28e53d884dd2c324fa77ad",
+    "bytes": 3818
+  },
+  "fashion_mnist_extension/output/fashion-mnist/boosting-decomposition.pdf": {
+    "sha256": "4d8609511a3a92dcfff7e27b02da29b915eeaa5f09e9d823df6cd0be27ca36e4",
+    "bytes": 20135
+  },
+  "fashion_mnist_extension/output/fashion-mnist/boosting-decomposition.png": {
+    "sha256": "57d2dc2372fdad46c17027305675eff7734c4e3f240b9a235d39a2bfa9fe1c8f",
+    "bytes": 121308
+  },
+  "fashion_mnist_extension/output/fashion-mnist/boosting-decomposition.svg": {
+    "sha256": "8e598c211bce20f1487b8ea6d07db95bf97e4726a65fb9ddb7f10f690a114e9f",
+    "bytes": 77337
+  },
+  "fashion_mnist_extension/output/fashion-mnist/summary.json": {
+    "sha256": "4152c9d2ed5472b6ffdc91da7b4290c371fa4a2b230b51bcdfaf0cf6adfe985e",
+    "bytes": 606
+  },
+  "fashion_mnist_extension/output/fashion-mnist/trees-decomposition.pdf": {
+    "sha256": "8534553a2aa74d9fc993a02a319038565902c3086d88acb00b4d9676acd45bb1",
+    "bytes": 21137
+  },
+  "fashion_mnist_extension/output/fashion-mnist/trees-decomposition.png": {
+    "sha256": "70219bb2b7b34e4891230653e856e885c16d41d306ccf589e877f7462986f5e7",
+    "bytes": 110832
+  },
+  "fashion_mnist_extension/output/fashion-mnist/trees-decomposition.svg": {
+    "sha256": "fac8a13b95cfadee1f96dff8f6da1cd335f1c6e6d2700148bb8431dc6c9e84ba",
+    "bytes": 83418
+  },
+  "fashion_mnist_extension/output/section5-overleaf/figures/fashion-mnist-axes.pdf": {
+    "sha256": "3c85b6b8318b30d2c12b1908387059be70af2d3892c3075e72eea3e30d7947b4",
+    "bytes": 24619
+  },
+  "fashion_mnist_extension/output/section5-overleaf/figures/fashion-mnist-axes.png": {
+    "sha256": "459969b52c186f1d825ecf86202f296579dca66ef326fe1732ecc8d2510387ec",
+    "bytes": 202988
+  },
+  "fashion_mnist_extension/output/section5-overleaf/figures/fashion-mnist-axes.svg": {
+    "sha256": "f79fc64190980b4222ed73b16321042d3d22767fe705489e23c48045f4c1336d",
+    "bytes": 123750
+  },
+  "fashion_mnist_extension/results/fashion-mnist/boosting_main.csv": {
+    "sha256": "cf430aee6d24c6f920cfa28a6147c35abe860a0c2e67a5deaee2adfc7bb8592a",
+    "bytes": 30941
+  },
+  "fashion_mnist_extension/results/fashion-mnist/manifest.json": {
+    "sha256": "250183b8634d398a834884ba8d89155861dcf0cd4af232723e11819ea0fd7a75",
+    "bytes": 1439
+  },
+  "fashion_mnist_extension/results/fashion-mnist/training_indices.npy": {
+    "sha256": "a7125018f44a36db23b2fa932339036fa13ff3d47b999cfb142a2a93c70fc842",
+    "bytes": 80128
+  },
+  "fashion_mnist_extension/results/fashion-mnist/trees_main.csv": {
+    "sha256": "83edf24c09cccc4c1a458bf98f93985ff1ea8e5a3f2e52fb91ca0e044f72da01",
+    "bytes": 63928
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/README.md": {
+    "sha256": "28b6a409524c134f3ebb373133c72ffeb9e6c63fb89977d60bb229643b99a24b",
+    "bytes": 2411
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/SOURCE.json": {
+    "sha256": "931aa0eb7823bde71ca0840c18708ed43e07679c7e9a0b66cec79e12e6d120fe",
+    "bytes": 244
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/figure.jpg": {
+    "sha256": "53cfad5106844be87b1768673122d94f309b9ff6780cc1287f4d74244924c9c0",
+    "bytes": 153479
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/requirements.txt": {
+    "sha256": "c0adf514ed2b7e1ee6923ba6e23d42e417a0285d991d22020e7f24b0746c5508",
+    "bytes": 585
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/RFF_linear_regression/RFF_utils.py": {
+    "sha256": "f14c2f4bfe124e82c9e3f8cebd9360f0acee1e71a81edf57890723fb4f47f350",
+    "bytes": 7189
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/RFF_linear_regression/main.py": {
+    "sha256": "9195bf1dedf4df87445099ec4b4946b5d85d0d7269afaaf69e0e0cfb0d8baaf1",
+    "bytes": 6532
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/RFF_linear_regression/model_utils.py": {
+    "sha256": "1d0f2981747a9b7a19744eb32311bce524040017df8fec877ad72d69af278f11",
+    "bytes": 1931
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/RFF_linear_regression/models.py": {
+    "sha256": "fa6c92bf3d4c0ab17eaf5d15cda1ab785ee016a6538e4002e00cefed7213c90d",
+    "bytes": 2576
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/RFF_linear_regression/stability.py": {
+    "sha256": "d61cb14f2b8e363050f345a324679f29c52d906af6f007ac8e23126d1cf4ca7b",
+    "bytes": 2361
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/RFF_linear_regression/utils.py": {
+    "sha256": "9479a8c12eb42a86181dc4a2e4fdac2e9b238e9c0bb0e2c6d86c35948b800d17",
+    "bytes": 9506
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/boosting/eff_p_boosting.py": {
+    "sha256": "8726bfe52bd38499078b9ac99459c3e4a8d5d1e9114fd71d7e9b9ddbc20f5654",
+    "bytes": 12110
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/boosting/main_boost.py": {
+    "sha256": "f8e6a86fcdc6691237f0f5250aaec0d82a0d5d588a5ad826846b28f4df0b7af0",
+    "bytes": 7391
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/config.json": {
+    "sha256": "5b065d62709f74eb8017e5d4ad59cece9b4febcfb6122013d0d84cabffbc95fe",
+    "bytes": 94
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/data_utils.py": {
+    "sha256": "43192aac12786b8218289918649f468913c2c00ead8f3090bdbc1999eb6ac6df",
+    "bytes": 4187
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/eff_p_utils.py": {
+    "sha256": "56e83091a6209dff0fba6feabcc8607d4c8e7f89662fc05a4ff5d4bfe116aef8",
+    "bytes": 4602
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/eval_utils.py": {
+    "sha256": "9115babb81009e3bea2e8d03a55941635e3a3a9dedfce856311d01425604de65",
+    "bytes": 778
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/trees/eff_p_trees.py": {
+    "sha256": "55841723a33394be6df6437331c2835ab744173511b3f7aa39c9379db5d4d7f2",
+    "bytes": 6344
+  },
+  "fashion_mnist_extension/upstream/not-double-descent/src/trees/main_trees.py": {
+    "sha256": "5f15d57440ef542c0e7460a7d554654cb7156558c454a2289909c5cc0b7883d8",
+    "bytes": 9294
+  },
+  "fashion_mnist_extension/verification/boosting-main-full-validation.json": {
+    "sha256": "0b43992dd5778d21a380b7a3741b82237e34fcf4601b33ce34a81327e0a5ee13",
+    "bytes": 5712
+  },
+  "fashion_mnist_extension/verification/packaging-boosting-smoke.json": {
+    "sha256": "c7cbc265e51ceddcb7cd8fa31bf748b4c23b0df3b61e2ff8b59837aa628f271c",
+    "bytes": 445
+  },
+  "fashion_mnist_extension/verification/packaging-checks.json": {
+    "sha256": "7f36370ec2740ca3acc571d72dbe57af9d5de511896a5ebfbcfe2555efd6a120",
+    "bytes": 534
+  },
+  "fashion_mnist_extension/verification/packaging-tree-smoke.json": {
+    "sha256": "4081907422866622faad6aab1c397d380a719e8bd7c30a6c9a37d30a8a42b42d",
+    "bytes": 1258
+  },
+  "fashion_mnist_extension/verification/tree-results-validation.json": {
+    "sha256": "d9724bee32d11f7ffa1c65562203c3580e8b7f411960f1ecd1cc3e1e83421eb8",
+    "bytes": 20171
+  },
+  "figures/fashion_mnist/boosting-decomposition.pdf": {
+    "sha256": "4d8609511a3a92dcfff7e27b02da29b915eeaa5f09e9d823df6cd0be27ca36e4",
+    "bytes": 20135
+  },
+  "figures/fashion_mnist/boosting-decomposition.png": {
+    "sha256": "57d2dc2372fdad46c17027305675eff7734c4e3f240b9a235d39a2bfa9fe1c8f",
+    "bytes": 121308
+  },
+  "figures/fashion_mnist/boosting-decomposition.svg": {
+    "sha256": "8e598c211bce20f1487b8ea6d07db95bf97e4726a65fb9ddb7f10f690a114e9f",
+    "bytes": 77337
+  },
+  "figures/fashion_mnist/fashion-mnist-axes.pdf": {
+    "sha256": "3c85b6b8318b30d2c12b1908387059be70af2d3892c3075e72eea3e30d7947b4",
+    "bytes": 24619
+  },
+  "figures/fashion_mnist/fashion-mnist-axes.png": {
+    "sha256": "459969b52c186f1d825ecf86202f296579dca66ef326fe1732ecc8d2510387ec",
+    "bytes": 202988
+  },
+  "figures/fashion_mnist/fashion-mnist-axes.svg": {
+    "sha256": "f79fc64190980b4222ed73b16321042d3d22767fe705489e23c48045f4c1336d",
+    "bytes": 123750
+  },
+  "figures/fashion_mnist/trees-decomposition.pdf": {
+    "sha256": "8534553a2aa74d9fc993a02a319038565902c3086d88acb00b4d9676acd45bb1",
+    "bytes": 21137
+  },
+  "figures/fashion_mnist/trees-decomposition.png": {
+    "sha256": "70219bb2b7b34e4891230653e856e885c16d41d306ccf589e877f7462986f5e7",
+    "bytes": 110832
+  },
+  "figures/fashion_mnist/trees-decomposition.svg": {
+    "sha256": "fac8a13b95cfadee1f96dff8f6da1cd335f1c6e6d2700148bb8431dc6c9e84ba",
+    "bytes": 83418
+  }
+}

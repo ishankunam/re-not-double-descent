@@ -1,0 +1,402 @@
+2026-11-02 20:02:29 main grid: 10000 train / 10000 test; 10 targets, 20 seeded members, 200 stages
+2026-11-02 20:02:30 boosting fit main target=0 member=1 seed=42
+2026-11-02 20:02:30 boosting fit main target=0 member=2 seed=84
+2026-11-02 20:02:30 boosting fit main target=0 member=3 seed=126
+2026-11-02 20:02:35 boosting cached main_target0_member00 in 5.3s
+2026-11-02 20:02:35 boosting fit main target=0 member=4 seed=168
+2026-11-02 20:02:36 boosting cached main_target0_member02 in 5.3s
+2026-11-02 20:02:36 boosting fit main target=0 member=5 seed=210
+2026-11-02 20:02:36 boosting cached main_target0_member01 in 5.5s
+2026-11-02 20:02:36 boosting fit main target=0 member=6 seed=252
+2026-11-02 20:02:41 boosting cached main_target0_member03 in 6.0s
+2026-11-02 20:02:41 boosting fit main target=0 member=7 seed=294
+2026-11-02 20:02:42 boosting cached main_target0_member04 in 6.1s
+2026-11-02 20:02:42 boosting fit main target=0 member=8 seed=336
+2026-11-02 20:02:42 boosting cached main_target0_member05 in 6.2s
+2026-11-02 20:02:42 boosting fit main target=0 member=9 seed=378
+2026-11-02 20:02:48 boosting cached main_target0_member06 in 6.1s
+2026-11-02 20:02:48 boosting fit main target=0 member=10 seed=420
+2026-11-02 20:02:48 boosting cached main_target0_member07 in 6.0s
+2026-11-02 20:02:48 boosting fit main target=0 member=11 seed=462
+2026-11-02 20:02:48 boosting cached main_target0_member08 in 6.2s
+2026-11-02 20:02:48 boosting fit main target=0 member=12 seed=504
+2026-11-02 20:02:53 boosting cached main_target0_member10 in 5.8s
+2026-11-02 20:02:54 boosting fit main target=0 member=13 seed=546
+2026-11-02 20:02:54 boosting cached main_target0_member09 in 5.9s
+2026-11-02 20:02:54 boosting fit main target=0 member=14 seed=588
+2026-11-02 20:02:54 boosting cached main_target0_member11 in 5.8s
+2026-11-02 20:02:54 boosting fit main target=0 member=15 seed=630
+2026-11-02 20:02:59 boosting cached main_target0_member12 in 5.7s
+2026-11-02 20:02:59 boosting fit main target=0 member=16 seed=672
+2026-11-02 20:02:59 boosting cached main_target0_member13 in 5.7s
+2026-11-02 20:02:59 boosting fit main target=0 member=17 seed=714
+2026-11-02 20:03:00 boosting cached main_target0_member14 in 5.6s
+2026-11-02 20:03:00 boosting fit main target=0 member=18 seed=756
+2026-11-02 20:03:04 boosting cached main_target0_member15 in 5.2s
+2026-11-02 20:03:04 boosting fit main target=0 member=19 seed=798
+2026-11-02 20:03:05 boosting cached main_target0_member16 in 5.3s
+2026-11-02 20:03:05 boosting fit main target=0 member=20 seed=840
+2026-11-02 20:03:05 boosting cached main_target0_member17 in 5.2s
+2026-11-02 20:03:05 boosting fit main target=1 member=1 seed=42
+2026-11-02 20:03:10 boosting cached main_target0_member18 in 5.9s
+2026-11-02 20:03:10 boosting fit main target=1 member=2 seed=84
+2026-11-02 20:03:10 boosting cached main_target0_member19 in 5.8s
+2026-11-02 20:03:10 boosting fit main target=1 member=3 seed=126
+2026-11-02 20:03:11 boosting cached main_target1_member00 in 5.9s
+2026-11-02 20:03:11 boosting fit main target=1 member=4 seed=168
+2026-11-02 20:03:15 boosting cached main_target1_member01 in 5.0s
+2026-11-02 20:03:15 boosting fit main target=1 member=5 seed=210
+2026-11-02 20:03:16 boosting cached main_target1_member02 in 5.3s
+2026-11-02 20:03:16 boosting fit main target=1 member=6 seed=252
+2026-11-02 20:03:16 boosting cached main_target1_member03 in 5.2s
+2026-11-02 20:03:16 boosting fit main target=1 member=7 seed=294
+2026-11-02 20:03:20 boosting cached main_target1_member04 in 5.1s
+2026-11-02 20:03:21 boosting fit main target=1 member=8 seed=336
+2026-11-02 20:03:21 boosting cached main_target1_member06 in 4.9s
+2026-11-02 20:03:21 boosting fit main target=1 member=9 seed=378
+2026-11-02 20:03:21 boosting cached main_target1_member05 in 5.1s
+2026-11-02 20:03:21 boosting fit main target=1 member=10 seed=420
+2026-11-02 20:03:25 boosting cached main_target1_member07 in 4.9s
+2026-11-02 20:03:25 boosting fit main target=1 member=11 seed=462
+2026-11-02 20:03:26 boosting cached main_target1_member08 in 4.7s
+2026-11-02 20:03:26 boosting fit main target=1 member=12 seed=504
+2026-11-02 20:03:26 boosting cached main_target1_member09 in 5.0s
+2026-11-02 20:03:26 boosting fit main target=1 member=13 seed=546
+2026-11-02 20:03:30 boosting cached main_target1_member10 in 5.0s
+2026-11-02 20:03:30 boosting fit main target=1 member=14 seed=588
+2026-11-02 20:03:31 boosting cached main_target1_member11 in 5.1s
+2026-11-02 20:03:31 boosting fit main target=1 member=15 seed=630
+2026-11-02 20:03:31 boosting cached main_target1_member12 in 5.1s
+2026-11-02 20:03:31 boosting fit main target=1 member=16 seed=672
+2026-11-02 20:03:35 boosting cached main_target1_member13 in 4.8s
+2026-11-02 20:03:35 boosting fit main target=1 member=17 seed=714
+2026-11-02 20:03:36 boosting cached main_target1_member14 in 4.9s
+2026-11-02 20:03:36 boosting fit main target=1 member=18 seed=756
+2026-11-02 20:03:36 boosting cached main_target1_member15 in 4.7s
+2026-11-02 20:03:36 boosting fit main target=1 member=19 seed=798
+2026-11-02 20:03:40 boosting cached main_target1_member16 in 4.7s
+2026-11-02 20:03:40 boosting fit main target=1 member=20 seed=840
+2026-11-02 20:03:40 boosting cached main_target1_member18 in 4.7s
+2026-11-02 20:03:40 boosting fit main target=2 member=1 seed=42
+2026-11-02 20:03:41 boosting cached main_target1_member17 in 4.9s
+2026-11-02 20:03:41 boosting fit main target=2 member=2 seed=84
+2026-11-02 20:03:45 boosting cached main_target1_member19 in 5.0s
+2026-11-02 20:03:45 boosting fit main target=2 member=3 seed=126
+2026-11-02 20:03:45 boosting cached main_target2_member00 in 4.9s
+2026-11-02 20:03:45 boosting fit main target=2 member=4 seed=168
+2026-11-02 20:03:46 boosting cached main_target2_member01 in 5.0s
+2026-11-02 20:03:46 boosting fit main target=2 member=5 seed=210
+2026-11-02 20:03:50 boosting cached main_target2_member02 in 4.9s
+2026-11-02 20:03:50 boosting fit main target=2 member=6 seed=252
+2026-11-02 20:03:50 boosting cached main_target2_member03 in 5.0s
+2026-11-02 20:03:50 boosting fit main target=2 member=7 seed=294
+2026-11-02 20:03:51 boosting cached main_target2_member04 in 5.0s
+2026-11-02 20:03:51 boosting fit main target=2 member=8 seed=336
+2026-11-02 20:03:55 boosting cached main_target2_member05 in 5.5s
+2026-11-02 20:03:55 boosting fit main target=2 member=9 seed=378
+2026-11-02 20:03:56 boosting cached main_target2_member07 in 5.1s
+2026-11-02 20:03:56 boosting fit main target=2 member=10 seed=420
+2026-11-02 20:03:56 boosting cached main_target2_member06 in 5.4s
+2026-11-02 20:03:56 boosting fit main target=2 member=11 seed=462
+2026-11-02 20:04:00 boosting cached main_target2_member08 in 5.0s
+2026-11-02 20:04:00 boosting fit main target=2 member=12 seed=504
+2026-11-02 20:04:01 boosting cached main_target2_member10 in 5.0s
+2026-11-02 20:04:01 boosting fit main target=2 member=13 seed=546
+2026-11-02 20:04:01 boosting cached main_target2_member09 in 5.2s
+2026-11-02 20:04:01 boosting fit main target=2 member=14 seed=588
+2026-11-02 20:04:06 boosting cached main_target2_member11 in 5.2s
+2026-11-02 20:04:06 boosting fit main target=2 member=15 seed=630
+2026-11-02 20:04:06 boosting cached main_target2_member13 in 5.3s
+2026-11-02 20:04:06 boosting fit main target=2 member=16 seed=672
+2026-11-02 20:04:06 boosting cached main_target2_member12 in 5.5s
+2026-11-02 20:04:06 boosting fit main target=2 member=17 seed=714
+2026-11-02 20:04:11 boosting cached main_target2_member14 in 5.2s
+2026-11-02 20:04:11 boosting fit main target=2 member=18 seed=756
+2026-11-02 20:04:11 boosting cached main_target2_member16 in 4.8s
+2026-11-02 20:04:11 boosting fit main target=2 member=19 seed=798
+2026-11-02 20:04:11 boosting cached main_target2_member15 in 5.1s
+2026-11-02 20:04:11 boosting fit main target=2 member=20 seed=840
+2026-11-02 20:04:16 boosting cached main_target2_member17 in 4.9s
+2026-11-02 20:04:16 boosting fit main target=3 member=1 seed=42
+2026-11-02 20:04:16 boosting cached main_target2_member18 in 4.9s
+2026-11-02 20:04:16 boosting fit main target=3 member=2 seed=84
+2026-11-02 20:04:16 boosting cached main_target2_member19 in 5.0s
+2026-11-02 20:04:16 boosting fit main target=3 member=3 seed=126
+2026-11-02 20:04:21 boosting cached main_target3_member00 in 5.1s
+2026-11-02 20:04:21 boosting fit main target=3 member=4 seed=168
+2026-11-02 20:04:21 boosting cached main_target3_member01 in 5.0s
+2026-11-02 20:04:21 boosting fit main target=3 member=5 seed=210
+2026-11-02 20:04:21 boosting cached main_target3_member02 in 4.9s
+2026-11-02 20:04:21 boosting fit main target=3 member=6 seed=252
+2026-11-02 20:04:26 boosting cached main_target3_member03 in 4.9s
+2026-11-02 20:04:26 boosting fit main target=3 member=7 seed=294
+2026-11-02 20:04:26 boosting cached main_target3_member04 in 4.9s
+2026-11-02 20:04:26 boosting fit main target=3 member=8 seed=336
+2026-11-02 20:04:26 boosting cached main_target3_member05 in 5.1s
+2026-11-02 20:04:26 boosting fit main target=3 member=9 seed=378
+2026-11-02 20:04:31 boosting cached main_target3_member06 in 5.1s
+2026-11-02 20:04:31 boosting fit main target=3 member=10 seed=420
+2026-11-02 20:04:31 boosting cached main_target3_member07 in 5.3s
+2026-11-02 20:04:31 boosting fit main target=3 member=11 seed=462
+2026-11-02 20:04:31 boosting cached main_target3_member08 in 4.9s
+2026-11-02 20:04:31 boosting fit main target=3 member=12 seed=504
+2026-11-02 20:04:36 boosting cached main_target3_member09 in 5.3s
+2026-11-02 20:04:36 boosting fit main target=3 member=13 seed=546
+2026-11-02 20:04:36 boosting cached main_target3_member10 in 5.2s
+2026-11-02 20:04:36 boosting fit main target=3 member=14 seed=588
+2026-11-02 20:04:37 boosting cached main_target3_member11 in 5.4s
+2026-11-02 20:04:37 boosting fit main target=3 member=15 seed=630
+2026-11-02 20:04:41 boosting cached main_target3_member12 in 5.3s
+2026-11-02 20:04:42 boosting fit main target=3 member=16 seed=672
+2026-11-02 20:04:42 boosting cached main_target3_member13 in 5.3s
+2026-11-02 20:04:42 boosting fit main target=3 member=17 seed=714
+2026-11-02 20:04:42 boosting cached main_target3_member14 in 5.0s
+2026-11-02 20:04:42 boosting fit main target=3 member=18 seed=756
+2026-11-02 20:04:47 boosting cached main_target3_member17 in 5.3s
+2026-11-02 20:04:47 boosting fit main target=3 member=19 seed=798
+2026-11-02 20:04:47 boosting cached main_target3_member15 in 5.5s
+2026-11-02 20:04:47 boosting fit main target=3 member=20 seed=840
+2026-11-02 20:04:47 boosting cached main_target3_member16 in 5.4s
+2026-11-02 20:04:47 boosting fit main target=4 member=1 seed=42
+2026-11-02 20:04:52 boosting cached main_target3_member18 in 5.1s
+2026-11-02 20:04:52 boosting fit main target=4 member=2 seed=84
+2026-11-02 20:04:52 boosting cached main_target3_member19 in 5.3s
+2026-11-02 20:04:52 boosting fit main target=4 member=3 seed=126
+2026-11-02 20:04:52 boosting cached main_target4_member00 in 5.4s
+2026-11-02 20:04:52 boosting fit main target=4 member=4 seed=168
+2026-11-02 20:04:57 boosting cached main_target4_member01 in 5.2s
+2026-11-02 20:04:57 boosting fit main target=4 member=5 seed=210
+2026-11-02 20:04:58 boosting cached main_target4_member02 in 5.3s
+2026-11-02 20:04:58 boosting fit main target=4 member=6 seed=252
+2026-11-02 20:04:58 boosting cached main_target4_member03 in 5.5s
+2026-11-02 20:04:58 boosting fit main target=4 member=7 seed=294
+2026-11-02 20:05:03 boosting cached main_target4_member04 in 5.2s
+2026-11-02 20:05:03 boosting fit main target=4 member=8 seed=336
+2026-11-02 20:05:03 boosting cached main_target4_member05 in 5.3s
+2026-11-02 20:05:03 boosting fit main target=4 member=9 seed=378
+2026-11-02 20:05:03 boosting cached main_target4_member06 in 5.3s
+2026-11-02 20:05:03 boosting fit main target=4 member=10 seed=420
+2026-11-02 20:05:08 boosting cached main_target4_member07 in 5.5s
+2026-11-02 20:05:08 boosting fit main target=4 member=11 seed=462
+2026-11-02 20:05:08 boosting cached main_target4_member08 in 5.3s
+2026-11-02 20:05:08 boosting fit main target=4 member=12 seed=504
+2026-11-02 20:05:09 boosting cached main_target4_member09 in 5.4s
+2026-11-02 20:05:09 boosting fit main target=4 member=13 seed=546
+2026-11-02 20:05:13 boosting cached main_target4_member10 in 5.3s
+2026-11-02 20:05:13 boosting fit main target=4 member=14 seed=588
+2026-11-02 20:05:13 boosting cached main_target4_member11 in 5.2s
+2026-11-02 20:05:13 boosting fit main target=4 member=15 seed=630
+2026-11-02 20:05:14 boosting cached main_target4_member12 in 5.4s
+2026-11-02 20:05:14 boosting fit main target=4 member=16 seed=672
+2026-11-02 20:05:18 boosting cached main_target4_member14 in 5.1s
+2026-11-02 20:05:19 boosting fit main target=4 member=17 seed=714
+2026-11-02 20:05:19 boosting cached main_target4_member13 in 5.1s
+2026-11-02 20:05:19 boosting fit main target=4 member=18 seed=756
+2026-11-02 20:05:19 boosting cached main_target4_member15 in 5.3s
+2026-11-02 20:05:19 boosting fit main target=4 member=19 seed=798
+2026-11-02 20:05:24 boosting cached main_target4_member17 in 5.3s
+2026-11-02 20:05:24 boosting fit main target=4 member=20 seed=840
+2026-11-02 20:05:24 boosting cached main_target4_member16 in 5.4s
+2026-11-02 20:05:24 boosting fit main target=5 member=1 seed=42
+2026-11-02 20:05:25 boosting cached main_target4_member18 in 5.2s
+2026-11-02 20:05:25 boosting fit main target=5 member=2 seed=84
+2026-11-02 20:05:29 boosting cached main_target5_member00 in 5.0s
+2026-11-02 20:05:29 boosting fit main target=5 member=3 seed=126
+2026-11-02 20:05:29 boosting cached main_target4_member19 in 5.4s
+2026-11-02 20:05:29 boosting fit main target=5 member=4 seed=168
+2026-11-02 20:05:30 boosting cached main_target5_member01 in 5.1s
+2026-11-02 20:05:30 boosting fit main target=5 member=5 seed=210
+2026-11-02 20:05:34 boosting cached main_target5_member02 in 5.2s
+2026-11-02 20:05:34 boosting fit main target=5 member=6 seed=252
+2026-11-02 20:05:34 boosting cached main_target5_member03 in 5.1s
+2026-11-02 20:05:34 boosting fit main target=5 member=7 seed=294
+2026-11-02 20:05:35 boosting cached main_target5_member04 in 5.2s
+2026-11-02 20:05:35 boosting fit main target=5 member=8 seed=336
+2026-11-02 20:05:39 boosting cached main_target5_member05 in 4.8s
+2026-11-02 20:05:39 boosting fit main target=5 member=9 seed=378
+2026-11-02 20:05:39 boosting cached main_target5_member06 in 4.9s
+2026-11-02 20:05:39 boosting fit main target=5 member=10 seed=420
+2026-11-02 20:05:40 boosting cached main_target5_member07 in 4.9s
+2026-11-02 20:05:40 boosting fit main target=5 member=11 seed=462
+2026-11-02 20:05:44 boosting cached main_target5_member08 in 5.0s
+2026-11-02 20:05:44 boosting fit main target=5 member=12 seed=504
+2026-11-02 20:05:44 boosting cached main_target5_member09 in 4.9s
+2026-11-02 20:05:44 boosting fit main target=5 member=13 seed=546
+2026-11-02 20:05:45 boosting cached main_target5_member10 in 4.9s
+2026-11-02 20:05:45 boosting fit main target=5 member=14 seed=588
+2026-11-02 20:05:49 boosting cached main_target5_member11 in 4.6s
+2026-11-02 20:05:49 boosting fit main target=5 member=15 seed=630
+2026-11-02 20:05:49 boosting cached main_target5_member12 in 4.8s
+2026-11-02 20:05:49 boosting fit main target=5 member=16 seed=672
+2026-11-02 20:05:50 boosting cached main_target5_member13 in 4.9s
+2026-11-02 20:05:50 boosting fit main target=5 member=17 seed=714
+2026-11-02 20:05:54 boosting cached main_target5_member14 in 5.1s
+2026-11-02 20:05:54 boosting fit main target=5 member=18 seed=756
+2026-11-02 20:05:54 boosting cached main_target5_member15 in 4.9s
+2026-11-02 20:05:54 boosting fit main target=5 member=19 seed=798
+2026-11-02 20:05:55 boosting cached main_target5_member16 in 4.9s
+2026-11-02 20:05:55 boosting fit main target=5 member=20 seed=840
+2026-11-02 20:05:59 boosting cached main_target5_member18 in 4.7s
+2026-11-02 20:05:59 boosting fit main target=6 member=1 seed=42
+2026-11-02 20:05:59 boosting cached main_target5_member17 in 5.0s
+2026-11-02 20:05:59 boosting fit main target=6 member=2 seed=84
+2026-11-02 20:05:59 boosting cached main_target5_member19 in 4.8s
+2026-11-02 20:05:59 boosting fit main target=6 member=3 seed=126
+2026-11-02 20:06:04 boosting cached main_target6_member00 in 5.3s
+2026-11-02 20:06:04 boosting fit main target=6 member=4 seed=168
+2026-11-02 20:06:04 boosting cached main_target6_member01 in 5.3s
+2026-11-02 20:06:04 boosting fit main target=6 member=5 seed=210
+2026-11-02 20:06:05 boosting cached main_target6_member02 in 5.1s
+2026-11-02 20:06:05 boosting fit main target=6 member=6 seed=252
+2026-11-02 20:06:09 boosting cached main_target6_member03 in 5.3s
+2026-11-02 20:06:09 boosting fit main target=6 member=7 seed=294
+2026-11-02 20:06:09 boosting cached main_target6_member04 in 5.3s
+2026-11-02 20:06:09 boosting fit main target=6 member=8 seed=336
+2026-11-02 20:06:10 boosting cached main_target6_member05 in 5.2s
+2026-11-02 20:06:10 boosting fit main target=6 member=9 seed=378
+2026-11-02 20:06:14 boosting cached main_target6_member06 in 5.1s
+2026-11-02 20:06:14 boosting fit main target=6 member=10 seed=420
+2026-11-02 20:06:15 boosting cached main_target6_member07 in 5.4s
+2026-11-02 20:06:15 boosting fit main target=6 member=11 seed=462
+2026-11-02 20:06:15 boosting cached main_target6_member08 in 5.1s
+2026-11-02 20:06:15 boosting fit main target=6 member=12 seed=504
+2026-11-02 20:06:20 boosting cached main_target6_member09 in 5.2s
+2026-11-02 20:06:20 boosting fit main target=6 member=13 seed=546
+2026-11-02 20:06:20 boosting cached main_target6_member11 in 5.3s
+2026-11-02 20:06:20 boosting fit main target=6 member=14 seed=588
+2026-11-02 20:06:20 boosting cached main_target6_member10 in 5.4s
+2026-11-02 20:06:20 boosting fit main target=6 member=15 seed=630
+2026-11-02 20:06:25 boosting cached main_target6_member12 in 5.3s
+2026-11-02 20:06:25 boosting fit main target=6 member=16 seed=672
+2026-11-02 20:06:25 boosting cached main_target6_member14 in 5.3s
+2026-11-02 20:06:25 boosting fit main target=6 member=17 seed=714
+2026-11-02 20:06:26 boosting cached main_target6_member13 in 5.4s
+2026-11-02 20:06:26 boosting fit main target=6 member=18 seed=756
+2026-11-02 20:06:30 boosting cached main_target6_member15 in 5.2s
+2026-11-02 20:06:30 boosting fit main target=6 member=19 seed=798
+2026-11-02 20:06:31 boosting cached main_target6_member16 in 5.1s
+2026-11-02 20:06:31 boosting fit main target=6 member=20 seed=840
+2026-11-02 20:06:31 boosting cached main_target6_member17 in 5.3s
+2026-11-02 20:06:31 boosting fit main target=7 member=1 seed=42
+2026-11-02 20:06:35 boosting cached main_target6_member18 in 5.1s
+2026-11-02 20:06:35 boosting fit main target=7 member=2 seed=84
+2026-11-02 20:06:36 boosting cached main_target7_member00 in 4.8s
+2026-11-02 20:06:36 boosting fit main target=7 member=3 seed=126
+2026-11-02 20:06:36 boosting cached main_target6_member19 in 5.3s
+2026-11-02 20:06:36 boosting fit main target=7 member=4 seed=168
+2026-11-02 20:06:40 boosting cached main_target7_member01 in 4.7s
+2026-11-02 20:06:40 boosting fit main target=7 member=5 seed=210
+2026-11-02 20:06:40 boosting cached main_target7_member02 in 4.7s
+2026-11-02 20:06:40 boosting fit main target=7 member=6 seed=252
+2026-11-02 20:06:41 boosting cached main_target7_member03 in 4.6s
+2026-11-02 20:06:41 boosting fit main target=7 member=7 seed=294
+2026-11-02 20:06:45 boosting cached main_target7_member04 in 4.8s
+2026-11-02 20:06:45 boosting fit main target=7 member=8 seed=336
+2026-11-02 20:06:45 boosting cached main_target7_member05 in 4.8s
+2026-11-02 20:06:45 boosting fit main target=7 member=9 seed=378
+2026-11-02 20:06:46 boosting cached main_target7_member06 in 4.9s
+2026-11-02 20:06:46 boosting fit main target=7 member=10 seed=420
+2026-11-02 20:06:50 boosting cached main_target7_member07 in 4.7s
+2026-11-02 20:06:50 boosting fit main target=7 member=11 seed=462
+2026-11-02 20:06:50 boosting cached main_target7_member08 in 4.8s
+2026-11-02 20:06:50 boosting fit main target=7 member=12 seed=504
+2026-11-02 20:06:50 boosting cached main_target7_member09 in 4.9s
+2026-11-02 20:06:50 boosting fit main target=7 member=13 seed=546
+2026-11-02 20:06:54 boosting cached main_target7_member10 in 4.7s
+2026-11-02 20:06:54 boosting fit main target=7 member=14 seed=588
+2026-11-02 20:06:55 boosting cached main_target7_member11 in 4.9s
+2026-11-02 20:06:55 boosting fit main target=7 member=15 seed=630
+2026-11-02 20:06:55 boosting cached main_target7_member12 in 4.9s
+2026-11-02 20:06:55 boosting fit main target=7 member=16 seed=672
+2026-11-02 20:06:59 boosting cached main_target7_member13 in 4.7s
+2026-11-02 20:06:59 boosting fit main target=7 member=17 seed=714
+2026-11-02 20:07:00 boosting cached main_target7_member14 in 4.9s
+2026-11-02 20:07:00 boosting fit main target=7 member=18 seed=756
+2026-11-02 20:07:00 boosting cached main_target7_member15 in 4.9s
+2026-11-02 20:07:00 boosting fit main target=7 member=19 seed=798
+2026-11-02 20:07:04 boosting cached main_target7_member16 in 4.8s
+2026-11-02 20:07:04 boosting fit main target=7 member=20 seed=840
+2026-11-02 20:07:05 boosting cached main_target7_member17 in 4.8s
+2026-11-02 20:07:05 boosting fit main target=8 member=1 seed=42
+2026-11-02 20:07:05 boosting cached main_target7_member18 in 4.8s
+2026-11-02 20:07:05 boosting fit main target=8 member=2 seed=84
+2026-11-02 20:07:09 boosting cached main_target7_member19 in 4.7s
+2026-11-02 20:07:09 boosting fit main target=8 member=3 seed=126
+2026-11-02 20:07:10 boosting cached main_target8_member00 in 5.4s
+2026-11-02 20:07:10 boosting fit main target=8 member=4 seed=168
+2026-11-02 20:07:10 boosting cached main_target8_member01 in 5.3s
+2026-11-02 20:07:10 boosting fit main target=8 member=5 seed=210
+2026-11-02 20:07:14 boosting cached main_target8_member02 in 5.5s
+2026-11-02 20:07:14 boosting fit main target=8 member=6 seed=252
+2026-11-02 20:07:16 boosting cached main_target8_member03 in 5.5s
+2026-11-02 20:07:16 boosting fit main target=8 member=7 seed=294
+2026-11-02 20:07:16 boosting cached main_target8_member04 in 5.5s
+2026-11-02 20:07:16 boosting fit main target=8 member=8 seed=336
+2026-11-02 20:07:20 boosting cached main_target8_member05 in 5.5s
+2026-11-02 20:07:20 boosting fit main target=8 member=9 seed=378
+2026-11-02 20:07:21 boosting cached main_target8_member06 in 5.4s
+2026-11-02 20:07:21 boosting fit main target=8 member=10 seed=420
+2026-11-02 20:07:21 boosting cached main_target8_member07 in 5.5s
+2026-11-02 20:07:21 boosting fit main target=8 member=11 seed=462
+2026-11-02 20:07:25 boosting cached main_target8_member08 in 5.4s
+2026-11-02 20:07:25 boosting fit main target=8 member=12 seed=504
+2026-11-02 20:07:26 boosting cached main_target8_member09 in 5.2s
+2026-11-02 20:07:26 boosting fit main target=8 member=13 seed=546
+2026-11-02 20:07:27 boosting cached main_target8_member10 in 5.5s
+2026-11-02 20:07:27 boosting fit main target=8 member=14 seed=588
+2026-11-02 20:07:31 boosting cached main_target8_member11 in 6.1s
+2026-11-02 20:07:31 boosting fit main target=8 member=15 seed=630
+2026-11-02 20:07:33 boosting cached main_target8_member12 in 6.6s
+2026-11-02 20:07:33 boosting fit main target=8 member=16 seed=672
+2026-11-02 20:07:33 boosting cached main_target8_member13 in 6.4s
+2026-11-02 20:07:33 boosting fit main target=8 member=17 seed=714
+2026-11-02 20:07:37 boosting cached main_target8_member14 in 5.7s
+2026-11-02 20:07:37 boosting fit main target=8 member=18 seed=756
+2026-11-02 20:07:38 boosting cached main_target8_member15 in 5.6s
+2026-11-02 20:07:38 boosting fit main target=8 member=19 seed=798
+2026-11-02 20:07:39 boosting cached main_target8_member16 in 5.5s
+2026-11-02 20:07:39 boosting fit main target=8 member=20 seed=840
+2026-11-02 20:07:42 boosting cached main_target8_member17 in 5.4s
+2026-11-02 20:07:42 boosting fit main target=9 member=1 seed=42
+2026-11-02 20:07:44 boosting cached main_target8_member18 in 5.6s
+2026-11-02 20:07:44 boosting fit main target=9 member=2 seed=84
+2026-11-02 20:07:44 boosting cached main_target8_member19 in 5.6s
+2026-11-02 20:07:44 boosting fit main target=9 member=3 seed=126
+2026-11-02 20:07:47 boosting cached main_target9_member00 in 4.9s
+2026-11-02 20:07:47 boosting fit main target=9 member=4 seed=168
+2026-11-02 20:07:49 boosting cached main_target9_member01 in 5.0s
+2026-11-02 20:07:49 boosting fit main target=9 member=5 seed=210
+2026-11-02 20:07:49 boosting cached main_target9_member02 in 4.9s
+2026-11-02 20:07:49 boosting fit main target=9 member=6 seed=252
+2026-11-02 20:07:52 boosting cached main_target9_member03 in 5.0s
+2026-11-02 20:07:52 boosting fit main target=9 member=7 seed=294
+2026-11-02 20:07:54 boosting cached main_target9_member04 in 5.0s
+2026-11-02 20:07:54 boosting fit main target=9 member=8 seed=336
+2026-11-02 20:07:54 boosting cached main_target9_member05 in 4.8s
+2026-11-02 20:07:54 boosting fit main target=9 member=9 seed=378
+2026-11-02 20:07:57 boosting cached main_target9_member06 in 5.2s
+2026-11-02 20:07:57 boosting fit main target=9 member=10 seed=420
+2026-11-02 20:07:59 boosting cached main_target9_member08 in 4.8s
+2026-11-02 20:07:59 boosting fit main target=9 member=11 seed=462
+2026-11-02 20:07:59 boosting cached main_target9_member07 in 5.3s
+2026-11-02 20:07:59 boosting fit main target=9 member=12 seed=504
+2026-11-02 20:08:03 boosting cached main_target9_member09 in 5.2s
+2026-11-02 20:08:03 boosting fit main target=9 member=13 seed=546
+2026-11-02 20:08:04 boosting cached main_target9_member11 in 5.2s
+2026-11-02 20:08:04 boosting fit main target=9 member=14 seed=588
+2026-11-02 20:08:04 boosting cached main_target9_member10 in 5.4s
+2026-11-02 20:08:04 boosting fit main target=9 member=15 seed=630
+2026-11-02 20:08:08 boosting cached main_target9_member12 in 5.2s
+2026-11-02 20:08:08 boosting fit main target=9 member=16 seed=672
+2026-11-02 20:08:10 boosting cached main_target9_member14 in 5.3s
+2026-11-02 20:08:10 boosting fit main target=9 member=17 seed=714
+2026-11-02 20:08:10 boosting cached main_target9_member13 in 5.3s
+2026-11-02 20:08:10 boosting fit main target=9 member=18 seed=756
+2026-11-02 20:08:13 boosting cached main_target9_member15 in 5.1s
+2026-11-02 20:08:13 boosting fit main target=9 member=19 seed=798
+2026-11-02 20:08:15 boosting cached main_target9_member16 in 5.2s
+2026-11-02 20:08:15 boosting fit main target=9 member=20 seed=840
+2026-11-02 20:08:15 boosting cached main_target9_member17 in 5.2s
+2026-11-02 20:08:18 boosting cached main_target9_member18 in 5.4s
+2026-11-02 20:08:20 boosting cached main_target9_member19 in 4.9s
+2026-11-02 20:08:21 wrote <WORKSPACE>/results/fashion-mnist/boosting_main.csv (385 rows)

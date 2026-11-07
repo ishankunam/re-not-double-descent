@@ -1,0 +1,9 @@
+{
+  "scope": "Package relocation checks only; no full-data model retraining or new experimental result.",
+  "tree_synthetic_smoke": "passed",
+  "boosting_synthetic_smoke": "passed",
+  "regenerated_main_figures": "three PNGs pixel-identical to included originals",
+  "main_csvs": "byte-identical to source; 77 and 35 aggregate rows; 847 and 385 total rows",
+  "standalone_imports": "scripts executed from a relocated extension directory",
+  "source_code": "copied unchanged from the measured experiment and recorded author revision"
+}

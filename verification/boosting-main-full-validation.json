@@ -1,0 +1,218 @@
+{
+  "status": "passed",
+  "date": "2026-11-02",
+  "scope": "Formal CSV/cache read only; four original-parameter full-data target0 refits; only this report is written.",
+  "formal_csv": {
+    "path": "<WORKSPACE>/results/fashion-mnist/boosting_main.csv",
+    "rows": 385,
+    "missing_keys": 0,
+    "duplicate_keys": 0,
+    "seed": 42,
+    "members": [
+      1,
+      2,
+      5,
+      10,
+      20
+    ],
+    "stages": [
+      1,
+      2,
+      10,
+      25,
+      50,
+      100,
+      200
+    ],
+    "sum_class_mse_max_abs_difference": 0.0,
+    "sha256_before_and_after": "cf430aee6d24c6f920cfa28a6147c35abe860a0c2e67a5deaee2adfc7bb8592a"
+  },
+  "data": {
+    "n_train": 10000,
+    "n_test": 10000,
+    "n_features": 784,
+    "target": "uncentered one-hot class0",
+    "train_class_counts": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "test_class_counts": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ]
+  },
+  "original_BOOST_PARAMS": {
+    "max_features": "sqrt",
+    "max_leaf_nodes": 10,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "learning_rate": 0.85,
+    "max_depth": null,
+    "criterion": "squared_error",
+    "init": "zero"
+  },
+  "cache_validation": [
+    {
+      "member_zero_based": 0,
+      "seed": 42,
+      "stages": [
+        1,
+        2,
+        10,
+        25,
+        50,
+        100,
+        200
+      ],
+      "prediction_shape_train_and_test": [
+        7,
+        10000
+      ],
+      "cached_staged_predictions": "bitwise_equal"
+    },
+    {
+      "member_zero_based": 1,
+      "seed": 84,
+      "stages": [
+        1,
+        2,
+        10,
+        25,
+        50,
+        100,
+        200
+      ],
+      "prediction_shape_train_and_test": [
+        7,
+        10000
+      ],
+      "cached_staged_predictions": "bitwise_equal"
+    }
+  ],
+  "full_data_independent_refits": [
+    {
+      "n_ens": 1,
+      "n_boost": 2,
+      "reference_model": "GradientBoostingRegressor",
+      "seeds": [
+        42
+      ],
+      "comparisons": {
+        "train": {
+          "predictions": "bitwise_equal",
+          "max_abs_prediction_difference": 0.0,
+          "mse_reference_and_formal": 0.03542207825584815,
+          "binary_error_reference_and_formal": 0.0464,
+          "formal_metrics": "exact_equal"
+        },
+        "test": {
+          "predictions": "bitwise_equal",
+          "max_abs_prediction_difference": 0.0,
+          "mse_reference_and_formal": 0.03900448799883602,
+          "binary_error_reference_and_formal": 0.049,
+          "formal_metrics": "exact_equal"
+        }
+      },
+      "tree_structures_bitwise_equal": 2
+    },
+    {
+      "n_ens": 1,
+      "n_boost": 200,
+      "reference_model": "GradientBoostingRegressor",
+      "seeds": [
+        42
+      ],
+      "comparisons": {
+        "train": {
+          "predictions": "bitwise_equal",
+          "max_abs_prediction_difference": 0.0,
+          "mse_reference_and_formal": 0.0011241591915047459,
+          "binary_error_reference_and_formal": 0.0,
+          "formal_metrics": "exact_equal"
+        },
+        "test": {
+          "predictions": "bitwise_equal",
+          "max_abs_prediction_difference": 0.0,
+          "mse_reference_and_formal": 0.058365720479943387,
+          "binary_error_reference_and_formal": 0.0571,
+          "formal_metrics": "exact_equal"
+        }
+      },
+      "tree_structures_bitwise_equal": 200
+    },
+    {
+      "n_ens": 2,
+      "n_boost": 2,
+      "reference_model": "VotingRegressor",
+      "seeds": [
+        42,
+        84
+      ],
+      "comparisons": {
+        "train": {
+          "predictions": "bitwise_equal",
+          "max_abs_prediction_difference": 0.0,
+          "mse_reference_and_formal": 0.032348853812172645,
+          "binary_error_reference_and_formal": 0.0441,
+          "formal_metrics": "exact_equal"
+        },
+        "test": {
+          "predictions": "bitwise_equal",
+          "max_abs_prediction_difference": 0.0,
+          "mse_reference_and_formal": 0.03668101161208055,
+          "binary_error_reference_and_formal": 0.048,
+          "formal_metrics": "exact_equal"
+        }
+      },
+      "tree_structures_bitwise_equal": 4
+    },
+    {
+      "n_ens": 2,
+      "n_boost": 200,
+      "reference_model": "VotingRegressor",
+      "seeds": [
+        42,
+        84
+      ],
+      "comparisons": {
+        "train": {
+          "predictions": "bitwise_equal",
+          "max_abs_prediction_difference": 0.0,
+          "mse_reference_and_formal": 0.0006951645652649574,
+          "binary_error_reference_and_formal": 0.0,
+          "formal_metrics": "exact_equal"
+        },
+        "test": {
+          "predictions": "bitwise_equal",
+          "max_abs_prediction_difference": 0.0,
+          "mse_reference_and_formal": 0.04398616899746285,
+          "binary_error_reference_and_formal": 0.0494,
+          "formal_metrics": "exact_equal"
+        }
+      },
+      "tree_structures_bitwise_equal": 400
+    }
+  ],
+  "elapsed_seconds": 17.203030250035226,
+  "interpretation": "Cached staged 200-round models exactly match independent 2/200-round training for both checked seeds. Prefix averaging exactly matches genuine VotingRegressor seeds42/84. Formal class0 errors exactly match original eval_utils.",
+  "limitations": [
+    "Independent retraining covers target0 and M1/M2 only; complete385-row grid and class-sum metrics were checked structurally.",
+    "Constituent GB tree RandomState object identities/final states are not compared because their shared RNG is further advanced in a200-round fit; learned structures and predictions are compared bitwise."
+  ]
+}

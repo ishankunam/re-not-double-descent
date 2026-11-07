@@ -1,0 +1,49 @@
+[20:02:27] [trees pid=68239] Starting complete tree grids, phase=main, workers=3; None/max_leaf_nodes is written as an empty CSV cell
+[20:02:29] [trees pid=68249] Loaded exact author-style 10000/10000 arrays; data signatures computed
+[20:02:29] [trees pid=68250] Loaded exact author-style 10000/10000 arrays; data signatures computed
+[20:02:29] [trees pid=68248] Loaded exact author-style 10000/10000 arrays; data signatures computed
+[20:02:31] [trees pid=68249] Fit and cached main_seed42_leaves2_n100 in 1.92s
+[20:02:32] [trees pid=68249] Completed and checkpointed main_seed42_leaves2_n100: 77 rows
+[20:02:32] [trees pid=68249] Finished leaves=2 phase=main in 2.3s
+[20:02:32] [trees pid=68239] Flushed trees_main.csv: 77 rows
+[20:02:32] [trees pid=68250] Fit and cached main_seed42_leaves5_n100 in 3.10s
+[20:02:33] [trees pid=68250] Completed and checkpointed main_seed42_leaves5_n100: 77 rows
+[20:02:33] [trees pid=68250] Finished leaves=5 phase=main in 3.6s
+[20:02:33] [trees pid=68239] Flushed trees_main.csv: 154 rows
+[20:02:33] [trees pid=68248] Fit and cached main_seed42_leaves10_n100 in 4.16s
+[20:02:34] [trees pid=68248] Completed and checkpointed main_seed42_leaves10_n100: 77 rows
+[20:02:34] [trees pid=68248] Finished leaves=10 phase=main in 4.8s
+[20:02:34] [trees pid=68239] Flushed trees_main.csv: 231 rows
+[20:02:37] [trees pid=68249] Fit and cached main_seed42_leaves20_n100 in 5.33s
+[20:02:38] [trees pid=68249] Completed and checkpointed main_seed42_leaves20_n100: 77 rows
+[20:02:38] [trees pid=68249] Finished leaves=20 phase=main in 6.0s
+[20:02:38] [trees pid=68239] Flushed trees_main.csv: 308 rows
+[20:02:40] [trees pid=68250] Fit and cached main_seed42_leaves50_n100 in 7.49s
+[20:02:41] [trees pid=68250] Completed and checkpointed main_seed42_leaves50_n100: 77 rows
+[20:02:41] [trees pid=68250] Finished leaves=50 phase=main in 8.3s
+[20:02:41] [trees pid=68239] Flushed trees_main.csv: 385 rows
+[20:02:42] [trees pid=68248] Fit and cached main_seed42_leaves75_n100 in 8.16s
+[20:02:43] [trees pid=68248] Completed and checkpointed main_seed42_leaves75_n100: 77 rows
+[20:02:43] [trees pid=68248] Finished leaves=75 phase=main in 8.9s
+[20:02:43] [trees pid=68239] Flushed trees_main.csv: 462 rows
+[20:02:46] [trees pid=68249] Fit and cached main_seed42_leaves100_n100 in 8.75s
+[20:02:47] [trees pid=68249] Completed and checkpointed main_seed42_leaves100_n100: 77 rows
+[20:02:47] [trees pid=68249] Finished leaves=100 phase=main in 9.7s
+[20:02:47] [trees pid=68239] Flushed trees_main.csv: 539 rows
+[20:02:53] [trees pid=68250] Fit and cached main_seed42_leaves500_n100 in 12.04s
+[20:02:54] [trees pid=68250] Completed and checkpointed main_seed42_leaves500_n100: 77 rows
+[20:02:54] [trees pid=68250] Finished leaves=500 phase=main in 12.8s
+[20:02:54] [trees pid=68239] Flushed trees_main.csv: 616 rows
+[20:02:57] [trees pid=68248] Fit and cached main_seed42_leaves1000_n100 in 13.51s
+[20:02:57] [trees pid=68248] Completed and checkpointed main_seed42_leaves1000_n100: 77 rows
+[20:02:57] [trees pid=68248] Finished leaves=1000 phase=main in 14.3s
+[20:02:57] [trees pid=68239] Flushed trees_main.csv: 693 rows
+[20:03:02] [trees pid=68249] Fit and cached main_seed42_leaves2000_n100 in 14.25s
+[20:03:02] [trees pid=68249] Completed and checkpointed main_seed42_leaves2000_n100: 77 rows
+[20:03:02] [trees pid=68249] Finished leaves=2000 phase=main in 14.9s
+[20:03:02] [trees pid=68239] Flushed trees_main.csv: 770 rows
+[20:03:07] [trees pid=68250] Fit and cached main_seed42_leavesmax_n100 in 13.49s
+[20:03:08] [trees pid=68250] Completed and checkpointed main_seed42_leavesmax_n100: 77 rows
+[20:03:08] [trees pid=68250] Finished leaves=max phase=main in 14.3s
+[20:03:08] [trees pid=68239] Flushed trees_main.csv: 847 rows
+[20:03:09] [trees pid=68239] All requested tree configurations completed

@@ -1,0 +1,16 @@
+{
+  "trees": {
+    "main_grid_rows": 77,
+    "single_model_min_test_squared_error": 0.3560262835211655,
+    "single_model_max_complexity_test_squared_error": 0.5366000000000001,
+    "largest_ensemble_test_squared_error": 0.2191829200000021,
+    "max_complexity_training_squared_error": 0.0
+  },
+  "boosting": {
+    "main_grid_rows": 35,
+    "single_model_min_test_squared_error": 0.3709472973056832,
+    "single_model_max_complexity_test_squared_error": 0.4868150718439453,
+    "largest_ensemble_test_squared_error": 0.2220966355002481,
+    "max_complexity_training_squared_error": 0.0125889617724493
+  }
+}

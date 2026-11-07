@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "exact_standalone_stage_prefixes": true,
+  "exact_voting_member_prefixes": true,
+  "parallel_block_serial_checkpoint_resume_bitwise_equal": true,
+  "dense_block_max_absolute_difference": 0.0,
+  "first_stage_upstream_norm_inflation": 1.3840830449826989,
+  "sklearn": "1.3.2",
+  "numpy": "1.26.0",
+  "train_samples": 41,
+  "test_samples": 17,
+  "members": 3,
+  "stage_prefixes_checked": [
+    1,
+    2,
+    4,
+    7
+  ]
+}

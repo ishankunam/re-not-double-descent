@@ -1,0 +1,655 @@
+{
+  "status": "passed",
+  "date": "2026-11-02",
+  "scope": "Formal tables and cache files read only; only this report is written. Full-data independent refits were performed for twelve 1/2-tree representatives.",
+  "validation_note": "All full-table/cache/metric/root assertions and all twelve independent-refit comparisons completed in preceding validation invocation. Its report serialization then failed on numpy int64; this invocation emits the same evidence with JSON-compatible scalar types.",
+  "grid": {
+    "main_rows": 847,
+    "effective_rows": 1100,
+    "missing_keys": 0,
+    "duplicate_keys": 0,
+    "seed": 42,
+    "tree_grid_main": [
+      1,
+      2,
+      5,
+      10,
+      20,
+      50,
+      100
+    ],
+    "tree_grid_effective": "all integers 1..100",
+    "leaf_grid": [
+      2,
+      5,
+      10,
+      20,
+      50,
+      75,
+      100,
+      500,
+      1000,
+      2000,
+      null
+    ],
+    "main_target": "shared-split ten-output forest (original indep_regressors=False)",
+    "effective_target": "separate centered class-0-vs-all forest"
+  },
+  "data": {
+    "n_train": 10000,
+    "n_test": 10000,
+    "n_features": 784,
+    "train_class_counts": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "test_class_counts": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "main_signature": "e981ca26f98e36f09b965eae41dd7a29fd9f9e3fcf4ff54533be982de68cebdd",
+    "effective_signature": "3ef610dab4f351d4d1864aba0d80be2d21210aa7f0c7666123ff96e63b879e47"
+  },
+  "sum_classes_mse_max_abs_difference": 2.220446049250313e-16,
+  "cache_checks": {
+    "models": 22,
+    "prediction_archives": 22,
+    "checkpoint_rows": 1947,
+    "model_roots_n10000": 2200,
+    "all_cached_predictions_recompute_formal_metrics": "passed with absolute tolerance 1e-12",
+    "p_equals_10000_mean_squared_norm": "passed with absolute tolerance 1e-10",
+    "cached_shapes_main": [
+      7,
+      10000,
+      10
+    ],
+    "cached_shapes_effective": [
+      100,
+      10000
+    ],
+    "all_recorded_metadata_fields_and_data_signatures": "passed",
+    "caches_without_later_binary_policy_description": 22
+  },
+  "full_data_original_retraining": [
+    {
+      "mode": "main",
+      "max_leaf_nodes": 2,
+      "n_estimators": 1,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "main",
+      "max_leaf_nodes": 2,
+      "n_estimators": 2,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "main",
+      "max_leaf_nodes": 500,
+      "n_estimators": 1,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "main",
+      "max_leaf_nodes": 500,
+      "n_estimators": 2,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "main",
+      "max_leaf_nodes": null,
+      "n_estimators": 1,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "main",
+      "max_leaf_nodes": null,
+      "n_estimators": 2,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "effective",
+      "max_leaf_nodes": 2,
+      "n_estimators": 1,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "effective",
+      "max_leaf_nodes": 2,
+      "n_estimators": 2,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "effective",
+      "max_leaf_nodes": 500,
+      "n_estimators": 1,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "effective",
+      "max_leaf_nodes": 500,
+      "n_estimators": 2,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "effective",
+      "max_leaf_nodes": null,
+      "n_estimators": 1,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    },
+    {
+      "mode": "effective",
+      "max_leaf_nodes": null,
+      "n_estimators": 2,
+      "n_train": 10000,
+      "n_test": 10000,
+      "tree_structure_random_states_train_test_predictions": "bitwise_equal"
+    }
+  ],
+  "actual_leaf_counts": {
+    "main:2": {
+      "min": 2,
+      "mean": 2.0,
+      "max": 2
+    },
+    "main:5": {
+      "min": 5,
+      "mean": 5.0,
+      "max": 5
+    },
+    "main:10": {
+      "min": 10,
+      "mean": 10.0,
+      "max": 10
+    },
+    "main:20": {
+      "min": 20,
+      "mean": 20.0,
+      "max": 20
+    },
+    "main:50": {
+      "min": 50,
+      "mean": 50.0,
+      "max": 50
+    },
+    "main:75": {
+      "min": 75,
+      "mean": 75.0,
+      "max": 75
+    },
+    "main:100": {
+      "min": 100,
+      "mean": 100.0,
+      "max": 100
+    },
+    "main:500": {
+      "min": 500,
+      "mean": 500.0,
+      "max": 500
+    },
+    "main:1000": {
+      "min": 1000,
+      "mean": 1000.0,
+      "max": 1000
+    },
+    "main:2000": {
+      "min": 1375,
+      "mean": 1431.26,
+      "max": 1484
+    },
+    "main:max": {
+      "min": 1362,
+      "mean": 1431.32,
+      "max": 1481
+    },
+    "effective:2": {
+      "min": 2,
+      "mean": 2.0,
+      "max": 2
+    },
+    "effective:5": {
+      "min": 5,
+      "mean": 5.0,
+      "max": 5
+    },
+    "effective:10": {
+      "min": 10,
+      "mean": 10.0,
+      "max": 10
+    },
+    "effective:20": {
+      "min": 20,
+      "mean": 20.0,
+      "max": 20
+    },
+    "effective:50": {
+      "min": 50,
+      "mean": 50.0,
+      "max": 50
+    },
+    "effective:75": {
+      "min": 75,
+      "mean": 75.0,
+      "max": 75
+    },
+    "effective:100": {
+      "min": 100,
+      "mean": 100.0,
+      "max": 100
+    },
+    "effective:500": {
+      "min": 312,
+      "mean": 341.18,
+      "max": 368
+    },
+    "effective:1000": {
+      "min": 312,
+      "mean": 341.18,
+      "max": 368
+    },
+    "effective:2000": {
+      "min": 312,
+      "mean": 341.18,
+      "max": 368
+    },
+    "effective:max": {
+      "min": 312,
+      "mean": 340.58,
+      "max": 371
+    }
+  },
+  "curves": {
+    "main_first_axis": [
+      {
+        "n_estimators": 1,
+        "first_leaf2_test_mse": 0.8322030436834067,
+        "best_leaf": 100,
+        "best_test_mse": 0.35602628352116555,
+        "unlimited_test_mse": 0.5366000000000001,
+        "unlimited_train_mse": 0.0,
+        "unlimited_test_error_binary": 0.2683
+      },
+      {
+        "n_estimators": 2,
+        "first_leaf2_test_mse": 0.813171789655325,
+        "best_leaf": 100,
+        "best_test_mse": 0.30815371685370774,
+        "unlimited_test_mse": 0.371,
+        "unlimited_train_mse": 0.0,
+        "unlimited_test_error_binary": 0.2648
+      },
+      {
+        "n_estimators": 5,
+        "first_leaf2_test_mse": 0.8058384834376061,
+        "best_leaf": 500,
+        "best_test_mse": 0.2620912243617634,
+        "unlimited_test_mse": 0.2786800000000037,
+        "unlimited_train_mse": 0.0,
+        "unlimited_test_error_binary": 0.1891
+      },
+      {
+        "n_estimators": 10,
+        "first_leaf2_test_mse": 0.8031836389325794,
+        "best_leaf": 500,
+        "best_test_mse": 0.2415606560259884,
+        "unlimited_test_mse": 0.2443859999999994,
+        "unlimited_train_mse": 0.0,
+        "unlimited_test_error_binary": 0.1658
+      },
+      {
+        "n_estimators": 20,
+        "first_leaf2_test_mse": 0.8031767168129652,
+        "best_leaf": null,
+        "best_test_mse": 0.22988399999999792,
+        "unlimited_test_mse": 0.22988399999999792,
+        "unlimited_train_mse": 0.0,
+        "unlimited_test_error_binary": 0.1514
+      },
+      {
+        "n_estimators": 50,
+        "first_leaf2_test_mse": 0.8025311942631572,
+        "best_leaf": null,
+        "best_test_mse": 0.22193536000000338,
+        "unlimited_test_mse": 0.22193536000000338,
+        "unlimited_train_mse": 0.0,
+        "unlimited_test_error_binary": 0.1472
+      },
+      {
+        "n_estimators": 100,
+        "first_leaf2_test_mse": 0.8033920921633898,
+        "best_leaf": null,
+        "best_test_mse": 0.21918292000000214,
+        "unlimited_test_mse": 0.21918292000000214,
+        "unlimited_train_mse": 0.0,
+        "unlimited_test_error_binary": 0.1437
+      }
+    ],
+    "main_ensemble_paths": [
+      {
+        "leaf": 2,
+        "first_mse": 0.8322030436834067,
+        "last_mse": 0.8033920921633898,
+        "max_mse_upward_step": 0.0008608979002325823,
+        "mse_increasing_steps_gt_1e_minus_12": 1
+      },
+      {
+        "leaf": 5,
+        "first_mse": 0.6933746180113182,
+        "last_mse": 0.5973421474512705,
+        "max_mse_upward_step": 0.0009051290529321632,
+        "mse_increasing_steps_gt_1e_minus_12": 1
+      },
+      {
+        "leaf": 10,
+        "first_mse": 0.5587707269518357,
+        "last_mse": 0.4484233299684975,
+        "max_mse_upward_step": -0.0007013931372344406,
+        "mse_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": 20,
+        "first_mse": 0.4537390686520059,
+        "last_mse": 0.3631397782669299,
+        "max_mse_upward_step": -0.0006050782541331956,
+        "mse_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": 50,
+        "first_mse": 0.37922049039236994,
+        "last_mse": 0.2972672054078596,
+        "max_mse_upward_step": -0.0008280848073924374,
+        "mse_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": 75,
+        "first_mse": 0.36431497975739235,
+        "last_mse": 0.27705113723782726,
+        "max_mse_upward_step": -0.0004951304641697685,
+        "mse_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": 100,
+        "first_mse": 0.35602628352116555,
+        "last_mse": 0.26512494961450067,
+        "max_mse_upward_step": -0.0003092020347067459,
+        "mse_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": 500,
+        "first_mse": 0.41852718076328776,
+        "last_mse": 0.22560021752285733,
+        "max_mse_upward_step": -0.0011139508471496862,
+        "mse_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": 1000,
+        "first_mse": 0.5004744629219271,
+        "last_mse": 0.2201604097684743,
+        "max_mse_upward_step": -0.0021204808059751556,
+        "mse_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": 2000,
+        "first_mse": 0.5426000000000001,
+        "last_mse": 0.21958878000000198,
+        "max_mse_upward_step": -0.0025721800000013395,
+        "mse_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": null,
+        "first_mse": 0.5366000000000001,
+        "last_mse": 0.21918292000000214,
+        "max_mse_upward_step": -0.002752440000001244,
+        "mse_increasing_steps_gt_1e_minus_12": 0
+      }
+    ],
+    "effective_first_axis": [
+      {
+        "n_estimators": 1,
+        "first_leaf2_test_mse": 0.07934625209798,
+        "best_leaf": 20,
+        "best_test_mse": 0.04007719712119615,
+        "unlimited_test_mse": 0.0608,
+        "unlimited_train_mse": 0.0,
+        "unlimited_p_train": 352.0,
+        "unlimited_p_test": 354.9241172702707
+      },
+      {
+        "n_estimators": 2,
+        "first_leaf2_test_mse": 0.07729344801577773,
+        "best_leaf": 50,
+        "best_test_mse": 0.03532805713111726,
+        "unlimited_test_mse": 0.045875,
+        "unlimited_train_mse": 0.0,
+        "unlimited_p_train": 214.09586971103536,
+        "unlimited_p_test": 189.52518806142626
+      },
+      {
+        "n_estimators": 5,
+        "first_leaf2_test_mse": 0.07124618342235126,
+        "best_leaf": 50,
+        "best_test_mse": 0.03159496964389958,
+        "unlimited_test_mse": 0.034556,
+        "unlimited_train_mse": 0.0,
+        "unlimited_p_train": 140.00338809705696,
+        "unlimited_p_test": 84.47579848173692
+      },
+      {
+        "n_estimators": 10,
+        "first_leaf2_test_mse": 0.06909714356981227,
+        "best_leaf": 100,
+        "best_test_mse": 0.03014164464116322,
+        "unlimited_test_mse": 0.031075,
+        "unlimited_train_mse": 0.0,
+        "unlimited_p_train": 115.89977703685119,
+        "unlimited_p_test": 46.68996572703271
+      },
+      {
+        "n_estimators": 20,
+        "first_leaf2_test_mse": 0.06962098765293777,
+        "best_leaf": 500,
+        "best_test_mse": 0.029217,
+        "unlimited_test_mse": 0.029497749999999996,
+        "unlimited_train_mse": 0.0,
+        "unlimited_p_train": 103.86499016874325,
+        "unlimited_p_test": 28.174468379805216
+      },
+      {
+        "n_estimators": 50,
+        "first_leaf2_test_mse": 0.06912647868728697,
+        "best_leaf": null,
+        "best_test_mse": 0.028052920000000002,
+        "unlimited_test_mse": 0.028052920000000002,
+        "unlimited_train_mse": 0.0,
+        "unlimited_p_train": 95.83726236570608,
+        "unlimited_p_test": 16.950686808009962
+      },
+      {
+        "n_estimators": 100,
+        "first_leaf2_test_mse": 0.069180739029142,
+        "best_leaf": null,
+        "best_test_mse": 0.027679729999999996,
+        "unlimited_test_mse": 0.027679729999999996,
+        "unlimited_train_mse": 0.0,
+        "unlimited_p_train": 93.35827347244107,
+        "unlimited_p_test": 13.045218650767552
+      }
+    ],
+    "effective_ensemble_paths": [
+      {
+        "leaf": 2,
+        "first_mse": 0.07934625209798,
+        "last_mse": 0.069180739029142,
+        "max_mse_upward_step": 0.0003275874383517202,
+        "first_p_test": 1.9980353516612446,
+        "last_p_test": 1.197493389155008,
+        "max_p_upward_step": 0.01574958656871961,
+        "mse_increasing_steps_gt_1e_minus_12": 49,
+        "p_increasing_steps_gt_1e_minus_12": 36
+      },
+      {
+        "leaf": 5,
+        "first_mse": 0.05305867963735942,
+        "last_mse": 0.03833550655690495,
+        "max_mse_upward_step": 0.00039250539956046937,
+        "first_p_test": 4.847146995902627,
+        "last_p_test": 1.969228328826253,
+        "max_p_upward_step": 0.014751971972675193,
+        "mse_increasing_steps_gt_1e_minus_12": 36,
+        "p_increasing_steps_gt_1e_minus_12": 44
+      },
+      {
+        "leaf": 10,
+        "first_mse": 0.04606898353652095,
+        "last_mse": 0.03445456974960273,
+        "max_mse_upward_step": 0.00019010094697664154,
+        "first_p_test": 9.7402248939432,
+        "last_p_test": 2.6931854698878084,
+        "max_p_upward_step": 0.0214602558116197,
+        "mse_increasing_steps_gt_1e_minus_12": 41,
+        "p_increasing_steps_gt_1e_minus_12": 27
+      },
+      {
+        "leaf": 20,
+        "first_mse": 0.04007719712119615,
+        "last_mse": 0.0320997808140987,
+        "max_mse_upward_step": 0.00014712597367973895,
+        "first_p_test": 19.98937131413584,
+        "last_p_test": 3.5530094230191454,
+        "max_p_upward_step": 0.012852241787200125,
+        "mse_increasing_steps_gt_1e_minus_12": 43,
+        "p_increasing_steps_gt_1e_minus_12": 25
+      },
+      {
+        "leaf": 50,
+        "first_mse": 0.04076190971789693,
+        "last_mse": 0.030082433506225262,
+        "max_mse_upward_step": 9.619277037723958e-05,
+        "first_p_test": 53.29095163692836,
+        "last_p_test": 4.967651579280631,
+        "max_p_upward_step": 0.007142057481230424,
+        "mse_increasing_steps_gt_1e_minus_12": 35,
+        "p_increasing_steps_gt_1e_minus_12": 8
+      },
+      {
+        "leaf": 75,
+        "first_mse": 0.04376587668289538,
+        "last_mse": 0.029407456435918702,
+        "max_mse_upward_step": 0.00017577537145846422,
+        "first_p_test": 85.76735723225252,
+        "last_p_test": 5.701283552756447,
+        "max_p_upward_step": 0.0033842951876543736,
+        "mse_increasing_steps_gt_1e_minus_12": 40,
+        "p_increasing_steps_gt_1e_minus_12": 2
+      },
+      {
+        "leaf": 100,
+        "first_mse": 0.04675515383981126,
+        "last_mse": 0.028919381974959767,
+        "max_mse_upward_step": 0.00019374245488696165,
+        "first_p_test": 108.3342486734148,
+        "last_p_test": 6.463492015110443,
+        "max_p_upward_step": 0.0013350063096853049,
+        "mse_increasing_steps_gt_1e_minus_12": 39,
+        "p_increasing_steps_gt_1e_minus_12": 2
+      },
+      {
+        "leaf": 500,
+        "first_mse": 0.0625,
+        "last_mse": 0.027791500000000004,
+        "max_mse_upward_step": 6.909435261708355e-05,
+        "first_p_test": 412.5548269848934,
+        "last_p_test": 13.235177585299457,
+        "max_p_upward_step": -0.01287604723417246,
+        "mse_increasing_steps_gt_1e_minus_12": 29,
+        "p_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": 1000,
+        "first_mse": 0.0625,
+        "last_mse": 0.027791500000000004,
+        "max_mse_upward_step": 6.909435261708355e-05,
+        "first_p_test": 412.5548269848934,
+        "last_p_test": 13.235177585299457,
+        "max_p_upward_step": -0.01287604723417246,
+        "mse_increasing_steps_gt_1e_minus_12": 29,
+        "p_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": 2000,
+        "first_mse": 0.0625,
+        "last_mse": 0.027791500000000004,
+        "max_mse_upward_step": 6.909435261708355e-05,
+        "first_p_test": 412.5548269848934,
+        "last_p_test": 13.235177585299457,
+        "max_p_upward_step": -0.01287604723417246,
+        "mse_increasing_steps_gt_1e_minus_12": 29,
+        "p_increasing_steps_gt_1e_minus_12": 0
+      },
+      {
+        "leaf": null,
+        "first_mse": 0.0608,
+        "last_mse": 0.027679729999999996,
+        "max_mse_upward_step": 9.047811511435355e-05,
+        "first_p_test": 354.9241172702707,
+        "last_p_test": 13.045218650767552,
+        "max_p_upward_step": -0.016749660195749527,
+        "mse_increasing_steps_gt_1e_minus_12": 24,
+        "p_increasing_steps_gt_1e_minus_12": 0
+      }
+    ]
+  },
+  "limitations": [
+    "Only seed42; no multi-seed statistical inference.",
+    "Main ten-output and effective class0 MSE must not be compared directly.",
+    "Effective binary thresholds forest predictions at zero; original denseS@y may differ at signed-zero roundoff.",
+    "Empirical local reversals are reported; no strict U-shape, convexity or monotonicity is claimed.",
+    "Cache metadata predates later non-statistical binary-policy text; recorded statistical settings/data signatures were verified."
+  ],
+  "report_generation_seconds": 1.360431875102222,
+  "interpretation": {
+    "main_multioutput": "Strong first descent for the single tree: leaf2 loss 0.832203, minimum at leaf100 0.356026, unlimited loss 0.536600. Averaging unlimited trees reduces loss to 0.219183 at M100. At fixed M>=20 the tested minimum is unlimited, so not every leaf-axis curve is U-shaped.",
+    "effective_class0": "Separate class0 model: single-tree loss 0.079346 at leaf2, minimum 0.040077 at leaf20, unlimited 0.060800; unlimited M100 gives 0.027680. Unlimited p_test falls from 354.924 to 13.045, while p_train falls from 352 to 93.358.",
+    "local_reversals": "Unlimited class0 p_test decreases at all 99 added-tree steps, but test loss has 24 small increases (largest 0.0000904781). Main leaf2 and leaf5 have one small increase each on the seven-point ensemble grid. Overall improvement must not be described as strict pointwise monotonicity.",
+    "capacity_saturation": "Main unlimited forests have 1362-1481 actual leaves per tree. Class0 unlimited trees have 312-371 leaves. Class0 caps 500,1000,2000 already saturate and produce identical cached metric paths; None can differ because unrestricted and finite-cap growth strategies differ.",
+    "scope": "One seed on one new dataset supports this reproduction; it does not establish universal U-shapes or explain every dataset difference."
+  }
+}

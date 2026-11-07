@@ -1,69 +1,87 @@
-# re-not-double-descent
+# Fashion-MNIST tree and boosting experiments
 
-## Files
+This folder extends the tree and gradient boosting experiments in Curth et al., *A U-turn on Double Descent: Rethinking Parameter Counting in Statistical Learning*, to Fashion-MNIST. The reference code is [author commit 76c6ec5](https://github.com/alanjeffares/not-double-descent/tree/76c6ec5d6181380baa4554378bf87d32abaf6606).
 
-| Path | Description |
-|---|---|
-| `src/run_fig2.py` | The experiment: forests for every leaf cap and ensemble size, one-vs-all or multi-output |
-| `src/digitize_fig2.py` | Reads the original figure's curves out of the paper's PDF and calibrates the y-axis |
-| `src/analyze_results.py` | Compares the re-run with the original; writes `results/comparison_original_vs_ours.csv` |
-| `src/plot_figures.py` | Matplotlib figures in `figures/` |
-| `src/typeset_comparison.py` | LaTeX figure: the original panels next to the re-run |
-| `src/version_and_prefix_check.py` | Checks across scikit-learn versions and of the first-k-trees shortcut |
-| `data/fig2_original_digitized.csv` | The original figure's curves (see [data/README.md](data/README.md)) |
-| `results/results_{ova,multi}_seed42.csv` | Main runs, one row per (leaf cap, ensemble size) |
-| `results/results_{ova,multi}_seeds0-3.csv` | Seed sensitivity |
-| `results/results_ova_randomsubset_seed42.csv` | Random training subset |
-| `results/comparison_original_vs_ours.csv` | Re-run vs. the digitized original at 20 points |
-| `results/check_sklearn{1.9.1,1.3.2}.txt` | Version check output |
-| `figures/fig2_overlay_ova.png` | One-vs-all re-run with the original's digitized vertices on top |
-| `figures/fig2_multi.png` | Multi-output re-run |
-| `figures/fig2_seeds_ova.png` | Seed 42 with a mean ± 1 sd band over seeds 0-3 |
-| `requirements.txt` | Pinned Python packages |
+## Included files
 
-## Setup
+- `experiments/`: dataset adapter, download script, training drivers and plotting code.
+- `upstream/not-double-descent/`: unchanged reference source, with the commit recorded in `SOURCE.json`.
+- `results/fashion-mnist/`: complete main CSVs, environment manifest and selected training indices.
+- `output/`: three generated figures in PDF, PNG and SVG, plus a numerical summary.
+- `logs/`: original main-run logs; the workspace path is replaced with `<WORKSPACE>`.
+- `verification/`: independent comparison records and packaging checks.
 
-Python 3.13 with the pinned packages:
+## Use a separate environment
 
-```bash
-pip install -r requirements.txt
+Run every command below from this folder, after `cd fashion_mnist_extension`. This keeps these package versions separate from the repository's other experiments.
+
+The recorded environment used Python 3.11.18, NumPy 1.26.0, scikit-learn 1.3.2, SciPy 1.11.4, PyTorch 2.1.1 and torchvision 0.16.1. The authors pinned NumPy/PyTorch/torchvision; our additional package versions are recorded in `results/fashion-mnist/manifest.json`.
+
+```sh
+python3.11 -m venv .venv-fashion
+source .venv-fashion/bin/activate
+python -m pip install -r experiments/requirements-reproduction.txt
 ```
 
-Download MNIST into `data/mnist/` as described in [data/README.md](data/README.md). The LaTeX figure also needs `pdflatex` with the `standalone`, `pgfplots`, `lmodern`, `caption` and `varwidth` packages, and the digitizer and LaTeX figure need the paper's PDF ([OpenReview](https://openreview.net/forum?id=O0Lz8XZT2b)), which is not committed.
+## Redraw the included results
 
-## Reproduce
+These commands read the included CSVs and require no dataset download or model training:
 
-Run from the repository root.
-
-| Step | Command | Time* |
-|---|---|---|
-| One-vs-all, seed 42 | `python src/run_fig2.py --variant ova --seeds 42 --out results/results_ova_seed42.csv` | 68 s |
-| Multi-output, seed 42 | `python src/run_fig2.py --variant multi --seeds 42 --out results/results_multi_seed42.csv` | 14 s |
-| One-vs-all, seeds 0-3 | `python src/run_fig2.py --variant ova --seeds 0 1 2 3 --out results/results_ova_seeds0-3.csv` | 5.7 min |
-| Multi-output, seeds 0-3 | `python src/run_fig2.py --variant multi --seeds 0 1 2 3 --out results/results_multi_seeds0-3.csv` | 44 s |
-| Random training subset | `python src/run_fig2.py --variant ova --seeds 42 --subset random --out results/results_ova_randomsubset_seed42.csv` | 68 s |
-| Digitize the original | `python src/digitize_fig2.py --pdf <path to the paper's PDF>` | 2 s |
-| Compare | `python src/analyze_results.py` | 1 s |
-| Matplotlib figures | `python src/plot_figures.py` | 2 s |
-| LaTeX figure | `python src/typeset_comparison.py --pdf <path to the paper's PDF> --compile` | 3 s |
-| Version and prefix checks | `python src/version_and_prefix_check.py` | 70 s |
-
-\*Apple M2 Pro, 10 cores, `n_jobs=-1`.
-
-- `--data-dir` points `run_fig2.py` at another data folder (e.g. `data/fashion`); `--leaves` runs only some leaf caps (e.g. `--leaves 200`).
-- The LaTeX figure is written to the git-ignored `figures/fig2_comparison/`; add `--no-caption` to use it in a document with its own caption.
-- `results/check_sklearn1.3.2.txt` came from Python 3.11 with scikit-learn 1.3.2 and NumPy 1.26.4, which needs its own environment.
-
-## Citation
-
-```bibtex
-@inproceedings{curth2023a,
-  title     = {A U-turn on Double Descent: Rethinking Parameter Counting in Statistical Learning},
-  author    = {Alicia Curth and Alan Jeffares and Mihaela van der Schaar},
-  booktitle = {Thirty-seventh Conference on Neural Information Processing Systems},
-  year      = {2023},
-  url       = {https://openreview.net/forum?id=O0Lz8XZT2b}
-}
+```sh
+python -m experiments.plot_results
+python -m experiments.plot_section5
 ```
 
-Authors' code: [alanjeffares/not-double-descent](https://github.com/alanjeffares/not-double-descent)
+The tree and boosting triptychs are written to `output/fashion-mnist/`. The four-panel figure is written to `output/section5-overleaf/figures/`. Matching copies are included at the repository root in `figures/fashion_mnist/` for use in the report. Copy newly generated figures there after a rerun if you want to update those copies.
+
+`plot_rff.py` is included because the shared plotting module imports it. There are no fitted RFF results in this package. Missing RFF and effective-parameter result tables are skipped by the plotting command.
+
+## Small implementation checks
+
+```sh
+python -m experiments.run_trees --smoke
+python -m experiments.run_boosting --smoke
+```
+
+These use small synthetic arrays to check model prefixes, predictions and smoother computations. Full-data comparison records from the original experiment are in `verification/`. Independent refits cover selected settings, not every configuration. The tree verification record also describes auxiliary effective-parameter checks; those result tables are outside the scope of the three main figures included here.
+
+## Rerun the main experiments
+
+The raw image files and fitted model caches are omitted. First download and verify the official Fashion-MNIST files:
+
+```sh
+python -m experiments.download_data
+python -m experiments.common
+python -m experiments.run_trees --phase main --workers 3
+python -m experiments.run_boosting --mode main --workers 3
+python -m experiments.plot_results
+python -m experiments.plot_section5
+```
+
+The downloader uses the official [Fashion-MNIST repository](https://github.com/zalandoresearch/fashion-mnist) and checks the four published file checksums. The manifest command records the current environment and selected indices for the rerun. Training writes model checkpoints under `results/fashion-mnist/`; those generated caches are ignored by `.gitignore`.
+
+## Experimental setup
+
+Training uses the first 1,000 examples of each class in original order, concatenated by class, for 10,000 examples. Testing uses all 10,000 official test images. Pixels are divided by 255 and flattened to 784 features. Main labels are uncentered one-hot vectors. This follows the released sampling code; the paper describes random subsampling.
+
+The main tree experiment uses one shared-split multi-output forest per configuration, with no bootstrap, square-root feature subsampling and no depth cap. Leaf caps are 2, 5, 10, 20, 50, 75, 100, 500, 1,000, 2,000 and uncapped. Ensemble sizes are 1, 2, 5, 10, 20, 50 and 100, giving 77 configurations.
+
+Boosting fits ten one-vs-rest regressors per member, with 10-leaf base trees, learning rate 0.85, square-root feature subsampling and zero initialization. Stages are 1, 2, 10, 25, 50, 100 and 200; averaged member counts are 1, 2, 5, 10 and 20, giving 35 configurations. Base seed is 42; boosting member j, starting at one, uses seed 42j.
+
+Smaller forests reuse ordered tree prefixes, and shorter boosting models reuse staged predictions. This reuse was compared with independent refits at selected settings. The underlying preprocessing, random seeds, model settings and evaluated grids are retained.
+
+## Reading the result tables
+
+Select `pred_idx == "all"` for the ten-class results: 77 rows in `trees_main.csv` and 35 rows in `boosting_main.csv`. The remaining rows report individual class components. An empty tree leaf-cap cell means no cap.
+
+- `test_error_mse` is the sum of ten classwise mean squared errors.
+- For `pred_idx=all`, `test_error_binary` is the ten-class argmax misclassification fraction, not a percentage.
+- Each main experiment uses 10,000 training and 10,000 test examples.
+
+The figures distinguish growth within a model from averaging several models. At 200 boosting stages, squared training error is still 0.0125889617724493. The switch to averaging marks the end of the released stage grid, not measured squared-loss interpolation.
+
+## Scope and runtime
+
+These are new-dataset results on one fixed training subset and one base-seed schedule. Test-curve minima describe these runs and are not validation-based model selections. No fitted RFF result or Great Lakes computation contributes to the included results.
+
+Main-run logs span about 42 seconds for trees and 352 seconds for boosting, including predictions, evaluation and cache writes. Each main experiment used three worker processes; each forest used `n_jobs=1`. Jobs overlapped. These durations are single-run observations of the prefix-reuse implementation, not averaged timings of independently refitting every grid point. The historical manifest records macOS ARM64 but does not record a CPU model or core count.
