@@ -1,0 +1,11 @@
+python 3.13.5 sklearn 1.9.1 numpy 2.5.4
+OVA   50 {1: np.float64(0.346435), 50: np.float64(0.197413), 100: np.float64(0.196297)}
+OVA   75 {1: np.float64(0.340756), 50: np.float64(0.178147), 100: np.float64(0.176362)}
+OVA   100 {1: np.float64(0.34498), 50: np.float64(0.166596), 100: np.float64(0.165039)}
+OVA   200 {1: np.float64(0.382926), 50: np.float64(0.147419), 100: np.float64(0.145036)}
+OVA   500 {1: np.float64(0.4423), 50: np.float64(0.137373), 100: np.float64(0.134833)}
+OVA   None {1: np.float64(0.4361), 50: np.float64(0.137238), 100: np.float64(0.134269)}
+MULTI 500 {1: np.float64(0.373026), 50: np.float64(0.160449), 100: np.float64(0.159337)}
+MULTI 2000 {1: np.float64(0.4832), 50: np.float64(0.137542), 100: np.float64(0.135049)}
+MULTI None {1: np.float64(0.472), 50: np.float64(0.140084), 100: np.float64(0.136401)}
+version block 69.2s
