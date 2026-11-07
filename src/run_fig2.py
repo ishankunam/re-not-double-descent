@@ -6,11 +6,13 @@ fit one forest per leaf cap & score the first k trees for each ensemble size
 test error is the squared error summed over the 10 classes
 """
 
+import argparse
 import struct
 import time
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 
 # Forest implementation behind the experiment
 from sklearn.ensemble import RandomForestRegressor
@@ -148,3 +150,51 @@ def run(variant: str, seed: int, Xtr, Ytr, Xte, Yte, n_jobs: int = -1):
         )
 
     return rows
+
+
+# ----
+# main
+# ----
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="re-run figure 2 (trees on MNIST)")
+    parser.add_argument("--variant", required=True, choices=["ova", "multi"])
+    parser.add_argument("--seeds", type=int, nargs="+", default=[42])
+    parser.add_argument(
+        "--subset", default="first1000", choices=["first1000", "random"]
+    )
+    parser.add_argument(
+        "--subset-seed-from-seed",
+        action="store_true",
+        help="redraw the random subset with each run's seed",
+    )
+    parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
+    parser.add_argument("--out", type=Path, required=True)
+    return parser.parse_args()
+
+
+def main():
+    args = parse_args()
+
+    all_rows = []
+    data = None
+    t_start = time.time()
+
+    for seed in args.seeds:
+        # Reload only when the subset depends on the seed
+        if data is None or args.subset_seed_from_seed:
+            data = load(args.data_dir, args.subset, subset_seed=seed)
+
+        t0 = time.time()
+        all_rows += run(args.variant, seed, *data)
+        print(f"== {args.variant} seed {seed} wall {time.time() - t0:.1f}s", flush=True)
+
+    # Write one row per (seed, P^leaf, P^ens)
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(all_rows).to_csv(args.out, index=False)
+    print(f"total wall {time.time() - t_start:.1f}s")
+
+
+if __name__ == "__main__":
+    main()
