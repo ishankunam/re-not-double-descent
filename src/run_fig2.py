@@ -7,9 +7,13 @@ test error is the squared error summed over the 10 classes
 """
 
 import struct
+import time
 from pathlib import Path
 
 import numpy as np
+
+# Forest implementation behind the experiment
+from sklearn.ensemble import RandomForestRegressor
 
 # -------------------
 # input configuration
@@ -70,3 +74,77 @@ def load(data_dir: Path, subset: str = "first1000", subset_seed: int = 0):
 
     # One-hot labels => one regression target per class
     return Xtr, np.eye(N_CLASSES)[ytr], Xte, np.eye(N_CLASSES)[yte]
+
+
+# --------------
+# fit & evaluate
+# --------------
+
+
+def tree_preds(forest, X):
+    # Stack each tree's own prediction => (n_trees, n_test[, n_out])
+    return np.stack([t.predict(X) for t in forest.estimators_])
+
+
+def run(variant: str, seed: int, Xtr, Ytr, Xte, Yte, n_jobs: int = -1):
+    rows = []
+
+    for L in LEAVES:
+        t0 = time.time()
+
+        # Settings shared by every forest in the paper's tree experiment
+        kw = {
+            "n_estimators": N_TREES,
+            "max_features": "sqrt",
+            "max_depth": None,
+            "bootstrap": False,
+            "max_leaf_nodes": L,
+            "random_state": seed,
+            "n_jobs": n_jobs,
+        }
+
+        if variant == "multi":
+            # One multi-output forest predicts all 10 classes jointly
+            rf = RandomForestRegressor(**kw).fit(Xtr, Ytr)
+            P = tree_preds(rf, Xte)  # (100, n, 10)
+            leaves = np.array([t.get_n_leaves() for t in rf.estimators_], float)
+        else:
+            # One-vs-all: ten independent forests, one per class
+            Ps, lv = [], []
+            for c in range(N_CLASSES):
+                rf = RandomForestRegressor(**kw).fit(Xtr, Ytr[:, c])
+                Ps.append(tree_preds(rf, Xte))
+                lv.append([t.get_n_leaves() for t in rf.estimators_])
+            P = np.stack(Ps, axis=-1)  # (100, n, 10)
+            # Per-tree leaf count, averaged over the classes
+            leaves = np.array(lv, float).mean(axis=0)
+
+        # Running sum over trees => the first k trees' mean is cum[k - 1] / k
+        cum = np.cumsum(P, axis=0)
+
+        for k in ENS:
+            pred = cum[k - 1] / k
+            err = ((pred - Yte) ** 2).mean(axis=0).sum()
+            ml = leaves[:k].mean()
+            rows.append(
+                {
+                    "variant": variant,
+                    "seed": seed,
+                    "p_leaf": ("max" if L is None else L),
+                    "p_ens": k,
+                    "test_err": err,
+                    "mean_leaves_firstk": ml,
+                    "mean_leaves_100": leaves.mean(),
+                    "total_leaves": leaves.mean() * k,
+                }
+            )
+
+        # rows[-len(ENS)] is the single-tree entry, rows[-1] the full ensemble
+        print(
+            f"{variant} seed={seed} P_leaf={L}: leaves={leaves.mean():.1f} "
+            f"err1={rows[-len(ENS)]['test_err']:.6f} "
+            f"err100={rows[-1]['test_err']:.6f} ({time.time() - t0:.1f}s)",
+            flush=True,
+        )
+
+    return rows
