@@ -111,3 +111,58 @@ def ticks(drawings, window, horizontal: bool):
 def find(curves, color):
     # Vertices of every curve drawn in this colour
     return [v for cc, v in curves if cc == color]
+
+
+# ----------------
+# calibrate y-axis
+# ----------------
+
+
+def calibrate(drawings, left, right, inset):
+    # Figure 3 inset: pixel -> value from its labelled major ticks
+    f3_ticks = ticks(drawings, FIG3_YTICKS, True)
+    print("Fig3 inset y ticks (px) incl. minor:", f3_ticks)
+    assert all(any(abs(m - t) < 0.01 for t in f3_ticks) for m in FIG3_MAJOR)
+    k3 = np.polyfit(FIG3_MAJOR, FIG3_MAJOR_VALUES, 1)
+
+    def v3(y):
+        return np.polyval(k3, y)
+
+    # Curves shared by figure 2 & the figure 3 inset
+    f2_blue, f2_red = find(left, BLUE)[0], find(left, RED)[0]
+    f3_blue, f3_red = find(inset, BLUE)[0], find(inset, RED)[0]
+    f2_100, f2_50 = find(right, L100)[0], find(right, L50)[0]
+    f3_100, f3_50 = find(inset, L50)[0], find(inset, L20)[0]
+
+    # The inset's blue curve has an extra P^leaf = 200 vertex (index 7)
+    f3_blue_no200 = np.delete(f3_blue, 7, axis=0)
+
+    # Linear map from figure 2 pixels to figure 3 pixels
+    a = np.concatenate([f2_blue[:, 1], f2_red[:, 1], f2_50[:, 1], f2_100[:, 1]])
+    b = np.concatenate([f3_blue_no200[:, 1], f3_red[:, 1], f3_50[:, 1], f3_100[:, 1]])
+    m = np.polyfit(a, b, 1)
+    resid = np.abs(np.polyval(m, a) - b).max()
+    print(
+        f"Fig2->Fig3 px map: y3 = {m[0]:.5f} y2 + {m[1]:.3f}; "
+        f"n={len(a)}, max resid {resid:.4f} px"
+    )
+
+    def v2(y):
+        return v3(np.polyval(m, y))
+
+    # The tick labels as printed read "bottom tick = 0.2"; kept as a comparison
+    f2_yt = ticks(drawings, FIG2_YTICKS, True)
+    print("Fig2 y ticks (px):", f2_yt, "spacings", np.diff(f2_yt))
+    k_alt = np.polyfit(f2_yt[::-1], [0.2, 0.4, 0.6, 0.8], 1)
+
+    def v2_alt(y):
+        return np.polyval(k_alt, y)
+
+    print(
+        f"Fig2 frame under Fig3 calibration: top {v2(75.4):.4f} bottom {v2(138.6):.4f}"
+    )
+    print(
+        "Fig2 tick positions under Fig3 calibration:",
+        [round(float(v2(t)), 4) for t in f2_yt],
+    )
+    return v3, v2, v2_alt
