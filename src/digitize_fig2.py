@@ -7,9 +7,14 @@ figure 3's inset (same page) plots the same curves w/ a self-consistent axis
 fit a linear map from figure 2 pixels to figure 3 pixels on all shared vertices, then use figure 3's ticks
 """
 
+import argparse
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
+
+# Reads the paper's PDF & exposes its vector drawings
+import pymupdf
 
 # -------------------
 # input configuration
@@ -166,3 +171,140 @@ def calibrate(drawings, left, right, inset):
         [round(float(v2(t)), 4) for t in f2_yt],
     )
     return v3, v2, v2_alt
+
+
+# ---------------------
+# build digitized table
+# ---------------------
+
+
+def build_table(drawings, left, center, right, inset, v3, v2, v2_alt):
+    # x ticks of the center & right panels give pixel -> P^leaf / P^ens
+    cx_t = ticks(drawings, CENTER_XTICKS, False)
+    rx_t = ticks(drawings, RIGHT_XTICKS, False)
+    print("center x ticks", cx_t, "right x ticks", rx_t)
+
+    def cx(x):
+        return (x - cx_t[0]) / (cx_t[-1] - cx_t[0]) * 500
+
+    def rx(x):
+        return (x - rx_t[0]) / (rx_t[-1] - rx_t[0]) * 100
+
+    f2_blue, f2_red = find(left, BLUE)[0], find(left, RED)[0]
+    f3_blue = find(inset, BLUE)[0]
+
+    rows = []
+
+    # Left panel: blue (P^ens = 1, leaves grow) then red (P^leaf = max, trees grow)
+    for i, (x, y) in enumerate(f2_blue):
+        rows.append(
+            {
+                "panel": "left",
+                "series": "P_ens=1 (blue)",
+                "p_leaf": LEAF_GRID[i],
+                "p_ens": 1,
+                "x_px": x,
+                "y_px": y,
+            }
+        )
+    for i, (x, y) in enumerate(f2_red):
+        rows.append(
+            {
+                "panel": "left",
+                "series": "P_leaf=max (red)",
+                "p_leaf": "max",
+                "p_ens": ENS_GRID[i],
+                "x_px": x,
+                "y_px": y,
+            }
+        )
+
+    # Center panel: error vs P^leaf for each fixed P^ens
+    for c, v in center:
+        for x, y in v:
+            rows.append(
+                {
+                    "panel": "center",
+                    "series": f"P_ens={CENTER_ENS[c]}",
+                    "p_leaf": int(np.round(cx(x))),
+                    "p_ens": CENTER_ENS[c],
+                    "x_px": x,
+                    "y_px": y,
+                }
+            )
+
+    # Right panel: error vs P^ens for each fixed P^leaf
+    for c, v in right:
+        for x, y in v:
+            rows.append(
+                {
+                    "panel": "right",
+                    "series": f"P_leaf={RIGHT_LEAF[c]}",
+                    "p_leaf": RIGHT_LEAF[c],
+                    "p_ens": int(np.round(rx(x))),
+                    "x_px": x,
+                    "y_px": y,
+                }
+            )
+
+    # Figure 3 inset: kept as the calibration reference
+    for x, y in f3_blue:
+        rows.append(
+            {
+                "panel": "fig3_inset",
+                "series": "P_ens=1 (blue)",
+                "p_leaf": None,
+                "p_ens": 1,
+                "x_px": x,
+                "y_px": y,
+            }
+        )
+
+    # Convert pixels to error values under both readings of the y-axis
+    df = pd.DataFrame(rows)
+    df["err_fig3cal"] = [
+        float(v3(y)) if p == "fig3_inset" else float(v2(y))
+        for p, y in zip(df.panel, df.y_px)
+    ]
+    df["err_if_bottom_tick_0.2"] = [
+        np.nan if p == "fig3_inset" else float(v2_alt(y))
+        for p, y in zip(df.panel, df.y_px)
+    ]
+    return df
+
+
+# ----
+# main
+# ----
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="digitize figure 2 from the paper's PDF"
+    )
+    parser.add_argument(
+        "--pdf", type=Path, required=True, help="path to the paper's PDF"
+    )
+    parser.add_argument("--out", type=Path, default=OUT_FILE)
+    args = parser.parse_args()
+
+    # Vector drawings on the page that holds figures 2 & 3
+    drawings = pymupdf.open(args.pdf)[PAGE_INDEX].get_drawings()
+
+    # Curves in each region
+    left = strokes(drawings, LEFT_PANEL)
+    center = strokes(drawings, CENTER_PANEL)
+    right = strokes(drawings, RIGHT_PANEL)
+    inset = strokes(drawings, FIG3_INSET)
+
+    v3, v2, v2_alt = calibrate(drawings, left, right, inset)
+    df = build_table(drawings, left, center, right, inset, v3, v2, v2_alt)
+
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(args.out, index=False)
+    print(df.to_string())
+    print(f"\ndone. wrote {len(df)} vertices to {args.out}")
+
+
+if __name__ == "__main__":
+    main()
