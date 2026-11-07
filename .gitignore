@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# uv
+.venv
+
+# ruff
+.ruff_cache
+
+# python
+__pycache__
+*.pyc
+
+# data (downloaded separately)
+data/mnist/
+paper.pdf
