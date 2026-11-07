@@ -169,6 +169,13 @@ def parse_args():
         action="store_true",
         help="redraw the random subset with each run's seed",
     )
+    parser.add_argument(
+        "--leaves",
+        type=int,
+        nargs="+",
+        default=None,
+        help="leaf caps to run instead of the full grid (e.g. 200 for figure 3)",
+    )
     parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
     parser.add_argument("--out", type=Path, required=True)
     return parser.parse_args()
@@ -187,7 +194,7 @@ def main():
             data = load(args.data_dir, args.subset, subset_seed=seed)
 
         t0 = time.time()
-        all_rows += run(args.variant, seed, *data)
+        all_rows += run(args.variant, seed, *data, leaves=args.leaves)
         print(f"== {args.variant} seed {seed} wall {time.time() - t0:.1f}s", flush=True)
 
     # Write one row per (seed, P^leaf, P^ens)
