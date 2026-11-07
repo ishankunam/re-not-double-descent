@@ -14,3 +14,6 @@ __pycache__
 # data (downloaded separately)
 data/mnist/
 paper.pdf
+
+# generated figure (holds crops of the paper's figure)
+figures/fig2_comparison/
